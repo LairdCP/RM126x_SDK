@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -128,6 +129,26 @@ void lorawan_api_init( radio_planner_t* rp )
     smtc_real_region_types = SMTC_REAL_REGION_RU_864;
 #elif defined( REGION_WW2G4 )
     smtc_real_region_types = SMTC_REAL_REGION_WW2G4;
+#elif defined( REGION_RM126X_AU_915 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_AU_915;
+#elif defined( REGION_RM126X_AU_AS_923 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_AU_AS_923;
+#elif defined( REGION_RM126X_EU_868 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_EU_868;
+#elif defined( REGION_RM126X_IN_865 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_IN_865;
+#elif defined( REGION_RM126X_JP_AS_923 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_JP_AS_923;
+#elif defined( REGION_RM126X_NZ_915 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_NZ_915;
+#elif defined( REGION_RM126X_NZ_AS_923 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_NZ_AS_923;
+#elif defined( REGION_RM126X_TW_AS_923 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_TW_AS_923;
+#elif defined( REGION_RM126X_UK_868 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_UK_868;
+#elif defined( REGION_RM126X_US_915 )
+    smtc_real_region_types = SMTC_REAL_REGION_RM126X_US_915;
 #else
 #error "Please select supported region"
 #endif

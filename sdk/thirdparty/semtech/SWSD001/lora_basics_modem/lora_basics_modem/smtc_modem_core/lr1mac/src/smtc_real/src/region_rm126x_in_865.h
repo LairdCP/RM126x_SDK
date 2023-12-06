@@ -1,7 +1,7 @@
-/*!
- * \file      real_defs_str.h
+/**
+ * \file      region_rm126x_in_865.h
  *
- * \brief     Region Abstraction Layer (REAL) strings definition
+ * \brief     region_rm126x_in_865  abstraction layer definition
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
@@ -33,8 +33,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __REAL_DEFS_STR_H__
-#define __REAL_DEFS_STR_H__
+#ifndef REGION_RM126X_IN_865_H
+#define REGION_RM126X_IN_865_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,6 +48,10 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 
+#include "smtc_real_defs.h"
+#include "lr1mac_defs.h"
+#include "lr1_stack_mac_layer.h"
+
 /*
  * -----------------------------------------------------------------------------
  * --- PUBLIC MACROS -----------------------------------------------------------
@@ -57,83 +61,6 @@ extern "C" {
  * -----------------------------------------------------------------------------
  * --- PUBLIC CONSTANTS --------------------------------------------------------
  */
-
-#if MODEM_HAL_DBG_TRACE == MODEM_HAL_FEATURE_ON
-static const char* smtc_real_region_list_str[] = {
-#if defined( REGION_EU_868 )
-    [SMTC_REAL_REGION_EU_868] = "EU868",
-#endif
-#if defined( REGION_AS_923 )
-    [SMTC_REAL_REGION_AS_923] = "AS923_GRP1",
-#endif
-#if defined( REGION_US_915 )
-    [SMTC_REAL_REGION_US_915] = "US915",
-#endif
-#if defined( REGION_AU_915 )
-    [SMTC_REAL_REGION_AU_915] = "AU915",
-#endif
-#if defined( REGION_CN_470 )
-    [SMTC_REAL_REGION_CN_470] = "CN470",
-#endif
-#if defined( REGION_WW2G4 )
-    [SMTC_REAL_REGION_WW2G4] = "WW2G4",
-#endif
-#if defined( REGION_AS_923 )
-    [SMTC_REAL_REGION_AS_923_GRP2] = "AS923_GRP2",
-#endif
-#if defined( REGION_AS_923 )
-    [SMTC_REAL_REGION_AS_923_GRP3] = "AS923_GRP3",
-#endif
-#if defined( REGION_IN_865 )
-    [SMTC_REAL_REGION_IN_865] = "IN_865",
-#endif
-#if defined( REGION_KR_920 )
-    [SMTC_REAL_REGION_KR_920] = "KR_920",
-#endif
-#if defined( REGION_RU_864 )
-    [SMTC_REAL_REGION_RU_864] = "RU_864",
-#endif
-#if defined( REGION_CN_470_RP_1_0 )
-    [SMTC_REAL_REGION_CN_470_RP_1_0] = "CN470_RP_1_0",
-#endif
-#if defined( RP2_103 )
-#if defined( REGION_AS_923 )
-    [SMTC_REAL_REGION_AS_923_GRP4] = "AS923_GRP4",
-#endif
-#endif
-#if defined( REGION_RM126X_AU_915 )
-    [SMTC_REAL_REGION_RM126X_AU_915] = "RM126X_AU_915",
-#endif
-#if defined( REGION_RM126X_AU_AS_923 )
-    [SMTC_REAL_REGION_RM126X_AU_AS_923] = "RM126X_AU_AS923",
-#endif
-#if defined( REGION_RM126X_EU_868 )
-    [SMTC_REAL_REGION_RM126X_EU_868] = "RM126X_EU_868",
-#endif
-#if defined( REGION_RM126X_IN_865 )
-    [SMTC_REAL_REGION_RM126X_IN_865] = "RM126X_IN_865",
-#endif
-#if defined( REGION_RM126X_JP_AS_923 )
-    [SMTC_REAL_REGION_RM126X_JP_AS_923] = "RM126X_JP_AS923",
-#endif
-#if defined( REGION_RM126X_NZ_915 )
-    [SMTC_REAL_REGION_RM126X_NZ_915] = "RM126X_NZ_915",
-#endif
-#if defined( REGION_RM126X_NZ_AS_923 )
-    [SMTC_REAL_REGION_RM126X_NZ_AS_923] = "RM126X_NZ_AS923",
-#endif
-#if defined( REGION_RM126X_TW_AS_923 )
-    [SMTC_REAL_REGION_RM126X_TW_AS_923] = "RM126X_TW_AS923",
-#endif
-#if defined( REGION_RM126X_UK_868 )
-    [SMTC_REAL_REGION_RM126X_UK_868] = "RM126X_UK_868",
-#endif
-#if defined( REGION_RM126X_US_915 )
-    [SMTC_REAL_REGION_RM126X_US_915] = "RM126X_US_915"
-#endif
-};
-
-#endif
 
 /*
  * -----------------------------------------------------------------------------
@@ -145,6 +72,94 @@ static const char* smtc_real_region_list_str[] = {
  * --- PUBLIC FUNCTIONS PROTOTYPES ---------------------------------------------
  */
 
-#endif  // __REAL_DEFS_STR_H__
+void region_rm126x_in_865_config( lr1_stack_mac_t* lr1_mac );
+
+/**
+ * \brief
+ * \remark
+ * \param [IN]  none
+ * \param [OUT] return
+ */
+void region_rm126x_in_865_init( lr1_stack_mac_t* lr1_mac );
+/**
+ * \brief
+ * \remark
+ * \param [IN]  none
+ * \param [OUT] return
+ */
+void region_rm126x_in_865_init_session( lr1_stack_mac_t* lr1_mac );
+/**
+ * \brief
+ * \remark
+ * \param [IN]  none
+ * \param [OUT] return
+ */
+status_lorawan_t region_rm126x_in_865_get_next_channel( lr1_stack_mac_t* lr1_mac );
+/**
+ * \brief
+ * \remark
+ * \param [IN]  none
+ * \param [OUT] return
+ */
+status_lorawan_t region_rm126x_in_865_get_join_next_channel( lr1_stack_mac_t* lr1_mac );
+/**
+ * \brief
+ * \remark
+ * \param [IN]  none
+ * \param [OUT] return
+ */
+void region_rm126x_in_865_set_rx_config( lr1_stack_mac_t* lr1_mac, rx_win_type_t type );
+/**
+ * \brief
+ * \remark
+ * \param [IN]  none
+ * \param [OUT] return
+ */
+void region_rm126x_in_865_set_channel_mask( lr1_stack_mac_t* lr1_mac );
+/**
+ * \brief
+ * \remark
+ * \param [IN]  none
+ * \param [OUT] return
+ */
+status_channel_t region_rm126x_in_865_build_channel_mask( lr1_stack_mac_t* lr1_mac, uint8_t ChMaskCntl, uint16_t ChMask );
+/**
+ * \brief
+ * \remark
+ * \param [IN]  none
+ * \param [OUT] return
+ */
+void region_rm126x_in_865_enable_all_channels_with_valid_freq( lr1_stack_mac_t* lr1_mac );
+
+/**
+ * @brief Get the corresponding RF modulation from a Datarate
+ *
+ * @param datarate
+ * @return modulation_type_t
+ */
+modulation_type_t region_rm126x_in_865_get_modulation_type_from_datarate( uint8_t datarate );
+
+/**
+ * @brief Convert LoRaWAN Datarate to LoRa SF and BW
+ *
+ * @param in_dr
+ * @param out_sf
+ * @param out_bw
+ */
+void region_rm126x_in_865_lora_dr_to_sf_bw( uint8_t in_dr, uint8_t* out_sf, lr1mac_bandwidth_t* out_bw );
+
+/**
+ * @brief Convert LoRaWAN Datarate to FSK bitrate
+ *
+ * @param in_dr
+ * @param out_bitrate
+ */
+void region_rm126x_in_865_fsk_dr_to_bitrate( uint8_t in_dr, uint8_t* out_bitrate );
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // REGION_RM126X_IN_865_H
 
 /* --- EOF ------------------------------------------------------------------ */

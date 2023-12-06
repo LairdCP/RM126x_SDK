@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -77,7 +78,36 @@ extern "C" {
 #if defined( REGION_CN_470_RP_1_0 )
 #include "region_cn_470_rp_1_0_defs.h"
 #endif
-
+#if defined( REGION_RM126X_AU_915 )
+#include "region_rm126x_au_915_defs.h"
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+#include "region_rm126x_au_as_923_defs.h"
+#endif
+#if defined( REGION_RM126X_EU_868 )
+#include "region_rm126x_eu_868_defs.h"
+#endif
+#if defined( REGION_RM126X_IN_865 )
+#include "region_rm126x_in_865_defs.h"
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+#include "region_rm126x_jp_as_923_defs.h"
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+#include "region_rm126x_nz_915_defs.h"
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+#include "region_rm126x_nz_as_923_defs.h"
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+#include "region_rm126x_tw_as_923_defs.h"
+#endif
+#if defined( REGION_RM126X_UK_868 )
+#include "region_rm126x_uk_868_defs.h"
+#endif
+#if defined( REGION_RM126X_US_915 )
+#include "region_rm126x_us_915_defs.h"
+#endif
 /*
  * -----------------------------------------------------------------------------
  * --- PUBLIC MACROS -----------------------------------------------------------
@@ -148,6 +178,39 @@ typedef enum smtc_real_region_types_e
     SMTC_REAL_REGION_AS_923_GRP4 = 13,
 #endif
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    SMTC_REAL_REGION_RM126X_AU_915 = 14,
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    SMTC_REAL_REGION_RM126X_AU_AS_923 = 15,
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    SMTC_REAL_REGION_RM126X_EU_868 = 16,
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    SMTC_REAL_REGION_RM126X_IN_865 = 17,
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    SMTC_REAL_REGION_RM126X_JP_AS_923 = 18,
+#endif
+#if defined( REGION_RM126X_KR_920 )
+    SMTC_REAL_REGION_RM126X_KR_920 = 19,
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    SMTC_REAL_REGION_RM126X_NZ_915 = 20,
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    SMTC_REAL_REGION_RM126X_NZ_AS_923 = 21,
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    SMTC_REAL_REGION_RM126X_TW_AS_923 = 24,
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    SMTC_REAL_REGION_RM126X_UK_868 = 25,
+#endif
+#if defined( REGION_RM126X_US_915 )
+    SMTC_REAL_REGION_RM126X_US_915 = 26,
+#endif
 } smtc_real_region_types_t;
 
 /**
@@ -207,6 +270,39 @@ static const uint8_t smtc_real_region_list[] = {
 #if defined( REGION_AS_923 )
     SMTC_REAL_REGION_AS_923_GRP4,
 #endif
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    SMTC_REAL_REGION_RM126X_AU_915,
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    SMTC_REAL_REGION_RM126X_AU_AS_923,
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    SMTC_REAL_REGION_RM126X_EU_868,
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    SMTC_REAL_REGION_RM126X_IN_865,
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    SMTC_REAL_REGION_RM126X_JP_AS_923,
+#endif
+#if defined( REGION_RM126X_KR_920 )
+    SMTC_REAL_REGION_RM126X_KR_920,
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    SMTC_REAL_REGION_RM126X_NZ_915,
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    SMTC_REAL_REGION_RM126X_NZ_AS_923,
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    SMTC_REAL_REGION_RM126X_TW_AS_923,
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    SMTC_REAL_REGION_RM126X_UK_868,
+#endif
+#if defined( REGION_RM126X_US_915 )
+    SMTC_REAL_REGION_RM126X_US_915,
 #endif
 };
 
@@ -376,6 +472,39 @@ typedef struct smtc_real_s
 #endif
 #if defined( REGION_CN_470_RP_1_0 )
         region_cn470_rp_1_0_context_t cn470_rp_1_0;
+#endif
+#if defined( REGION_RM126X_AU_915 )
+        region_rm126x_au915_context_t rm126x_au915;
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+        region_rm126x_au_as923_context_t rm126x_au_as923;
+#endif
+#if defined( REGION_RM126X_EU_868 )
+        region_rm126x_eu868_context_t rm126x_eu868;
+#endif
+#if defined( REGION_RM126X_IN_865 )
+        region_rm126x_in865_context_t rm126x_in865;
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+        region_rm126x_jp_as923_context_t rm126x_jp_as923;
+#endif
+#if defined( REGION_RM126X_KR_920 )
+        region_rm126x_kr920_context_t rm126x_kr920;
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+        region_rm126x_nz915_context_t rm126x_nz_915;
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+        region_rm126x_nz_as923_context_t rm126x_nz_as923;
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+        region_rm126x_tw_as923_context_t rm126x_tw_as923;
+#endif
+#if defined( REGION_RM126X_UK_868 )
+        region_rm126x_uk868_context_t rm126x_uk868;
+#endif
+#if defined( REGION_RM126X_US_915 )
+        region_rm126x_us915_context_t rm126x_us915;
 #endif
     } region;
 

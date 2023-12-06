@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -75,9 +76,43 @@
 #if defined( REGION_RU_864 )
 #include "region_ru_864.h"
 #endif
+#if defined( REGION_RM126X_AU_915 )
+#include "region_rm126x_au_915.h"
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+#include "region_rm126x_au_as_923.h"
+#endif
+#if defined( REGION_RM126X_EU_868 )
+#include "region_rm126x_eu_868.h"
+#endif
+#if defined( REGION_RM126X_IN_865 )
+#include "region_rm126x_in_865.h"
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+#include "region_rm126x_jp_as_923.h"
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+#include "region_rm126x_nz_915.h"
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+#include "region_rm126x_nz_as_923.h"
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+#include "region_rm126x_tw_as_923.h"
+#endif
+#if defined( REGION_RM126X_UK_868 )
+#include "region_rm126x_uk_868.h"
+#endif
+#if defined( REGION_RM126X_US_915 )
+#include "region_rm126x_us_915.h"
+#endif
 #if !defined( REGION_WW2G4 ) && !defined( REGION_EU_868 ) && !defined( REGION_AS_923 ) && !defined( REGION_US_915 ) && \
     !defined( REGION_AU_915 ) && !defined( REGION_CN_470 ) && !defined( REGION_CN_470_RP_1_0 ) &&                      \
-    !defined( REGION_IN_865 ) && !defined( REGION_KR_920 ) && !defined( REGION_RU_864 )
+    !defined( REGION_IN_865 ) && !defined( REGION_KR_920 ) && !defined( REGION_RU_864 ) &&                             \
+    !defined( REGION_RM126X_AU_915 ) && !defined( REGION_RM126X_AU_AS_923 ) && !defined( REGION_RM126X_EU_868 ) &&     \
+    !defined( REGION_RM126X_IN_865 ) && !defined( REGION_RM126X_JP_AS_923 ) && !defined( REGION_RM126X_NZ_915 ) && \
+    !defined( REGION_RM126X_NZ_AS_923 ) && !defined( REGION_RM126X_TW_AS_923 ) && !defined( REGION_RM126X_UK_868 ) && \
+    !defined( REGION_RM126X_US_915 )
 #error "Unknown region selected..."
 #endif
 
@@ -188,6 +223,66 @@ void smtc_real_config( lr1_stack_mac_t* lr1_mac )
         break;
     }
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_config( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        region_rm126x_au_as_923_config( lr1_mac, 1 );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        region_rm126x_eu_868_config( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        region_rm126x_in_865_config( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        region_rm126x_jp_as_923_config( lr1_mac, 1 );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_config( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        region_rm126x_nz_as_923_config( lr1_mac, 1 );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        region_rm126x_tw_as_923_config( lr1_mac, 1 );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        region_rm126x_uk_868_config( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_config( lr1_mac );
+        break;
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -295,6 +390,66 @@ void smtc_real_init( lr1_stack_mac_t* lr1_mac )
         break;
     }
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        region_rm126x_au_as_923_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        region_rm126x_eu_868_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        region_rm126x_in_865_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        region_rm126x_jp_as_923_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        region_rm126x_nz_as_923_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        region_rm126x_tw_as_923_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        region_rm126x_uk_868_init( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_init( lr1_mac );
+        break;
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -334,8 +489,42 @@ void smtc_real_init_session( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_US_915 ) || \
-    defined( REGION_AU_915 ) || defined( REGION_IN_865 ) || defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_AU_915 ) || defined( REGION_IN_865 ) || defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || \
+    defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_915 ) || \
+    defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 ) || \
+    defined( REGION_RM126X_US_915 )
     {
         // Not used for these regions
         break;
@@ -605,8 +794,31 @@ uint8_t smtc_real_get_number_of_chmask_in_cflist( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || \
+    defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
+    defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         return 0;
     }
@@ -617,7 +829,17 @@ uint8_t smtc_real_get_number_of_chmask_in_cflist( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915:
 #endif
-#if defined( REGION_US_915 ) || defined( REGION_AU_915 )
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
+#if defined( REGION_US_915 ) || defined( REGION_AU_915 ) || defined( REGION_RM126X_AU_915 ) || \
+    defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
         return 5;
     }
@@ -699,6 +921,56 @@ status_lorawan_t smtc_real_get_next_channel( lr1_stack_mac_t* lr1_mac )
         return region_ru_864_get_next_channel( lr1_mac );
     }
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        return region_rm126x_au_915_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        return region_rm126x_au_as_923_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        return region_rm126x_eu_868_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        return region_rm126x_in_865_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        return region_rm126x_jp_as_923_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        return region_rm126x_nz_915_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        return region_rm126x_nz_as_923_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        return region_rm126x_tw_as_923_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        return region_rm126x_uk_868_get_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        return region_rm126x_us_915_get_next_channel( lr1_mac );
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -764,6 +1036,56 @@ status_lorawan_t smtc_real_get_join_next_channel( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864: {
         return region_ru_864_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        return region_rm126x_au_915_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        return region_rm126x_au_as_923_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        return region_rm126x_eu_868_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        return region_rm126x_in_865_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        return region_rm126x_jp_as_923_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        return region_rm126x_nz_915_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        return region_rm126x_nz_as_923_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        return region_rm126x_tw_as_923_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        return region_rm126x_uk_868_get_join_next_channel( lr1_mac );
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        return region_rm126x_us_915_get_join_next_channel( lr1_mac );
     }
 #endif
     default:
@@ -840,6 +1162,66 @@ void smtc_real_set_rx_config( lr1_stack_mac_t* lr1_mac, rx_win_type_t type )
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864: {
         region_ru_864_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        region_rm126x_au_as_923_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        region_rm126x_eu_868_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        region_rm126x_in_865_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        region_rm126x_jp_as_923_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        region_rm126x_nz_as_923_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        region_rm126x_tw_as_923_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        region_rm126x_uk_868_set_rx_config( lr1_mac, type );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_set_rx_config( lr1_mac, type );
         break;
     }
 #endif
@@ -933,6 +1315,66 @@ void smtc_real_set_channel_mask( lr1_stack_mac_t* lr1_mac )
         break;
     }
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        region_rm126x_au_as_923_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        region_rm126x_eu_868_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        region_rm126x_in_865_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        region_rm126x_jp_as_923_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        region_rm126x_nz_as_923_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        region_rm126x_tw_as_923_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        region_rm126x_eu_868_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_set_channel_mask( lr1_mac );
+        break;
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -977,9 +1419,32 @@ void smtc_real_init_join_snapshot_channel_mask( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_CN_470 ) || \
     defined( REGION_CN_470_RP_1_0 ) || defined( REGION_IN_865 ) || defined( REGION_KR_920 ) ||                     \
-    defined( REGION_RU_864 )
+    defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) ||           \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         // Not used for these regions
         break;
@@ -994,6 +1459,24 @@ void smtc_real_init_join_snapshot_channel_mask( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915: {
         region_au_915_init_join_snapshot_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_init_join_snapshot_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_init_join_snapshot_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_init_join_snapshot_channel_mask( lr1_mac );
         break;
     }
 #endif
@@ -1036,9 +1519,32 @@ void smtc_real_init_after_join_snapshot_channel_mask( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_CN_470 ) || \
     defined( REGION_CN_470_RP_1_0 ) || defined( REGION_IN_865 ) || defined( REGION_KR_920 ) ||                     \
-    defined( REGION_RU_864 )
+    defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) ||           \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         // Not used for these regions
         break;
@@ -1053,6 +1559,24 @@ void smtc_real_init_after_join_snapshot_channel_mask( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915: {
         region_au_915_init_after_join_snapshot_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_init_after_join_snapshot_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_init_after_join_snapshot_channel_mask( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_init_after_join_snapshot_channel_mask( lr1_mac );
         break;
     }
 #endif
@@ -1120,6 +1644,56 @@ status_channel_t smtc_real_build_channel_mask( lr1_stack_mac_t* lr1_mac, uint8_t
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864: {
         return region_ru_864_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        return region_rm126x_au_915_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        return region_rm126x_au_as_923_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        return region_rm126x_eu_868_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        return region_rm126x_in_865_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        return region_rm126x_jp_as_923_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        return region_rm126x_nz_915_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        return region_rm126x_nz_as_923_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        return region_rm126x_tw_as_923_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        return region_rm126x_uk_868_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        return region_rm126x_us_915_build_channel_mask( lr1_mac, ch_mask_cntl, ch_mask );
     }
 #endif
     default:
@@ -1216,8 +1790,31 @@ void smtc_real_enable_all_channels_with_valid_freq( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || \
+    defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
+    defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         for( uint8_t i = 0; i < const_number_of_tx_channel; i++ )
         {
@@ -1252,6 +1849,24 @@ void smtc_real_enable_all_channels_with_valid_freq( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915: {
         region_au_915_enable_all_channels_with_valid_freq( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_enable_all_channels_with_valid_freq( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_enable_all_channels_with_valid_freq( lr1_mac );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_enable_all_channels_with_valid_freq( lr1_mac );
         break;
     }
 #endif
@@ -1333,9 +1948,32 @@ status_lorawan_t smtc_real_is_tx_dr_acceptable( lr1_stack_mac_t* lr1_mac, uint8_
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_CN_470 ) || \
     defined( REGION_CN_470_RP_1_0 ) || defined( REGION_IN_865 ) || defined( REGION_KR_920 ) ||                     \
-    defined( REGION_RU_864 )
+    defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) ||           \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         uint8_t* ch_mask_to_check =
             ( is_ch_mask_from_link_adr == true ) ? unwrapped_channel_mask_ctx : channel_index_enabled_ctx;
@@ -1372,6 +2010,14 @@ status_lorawan_t smtc_real_is_tx_dr_acceptable( lr1_stack_mac_t* lr1_mac, uint8_
     case SMTC_REAL_REGION_AU_915:
         return region_au_915_is_acceptable_tx_dr( lr1_mac, dr, is_ch_mask_from_link_adr );
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+        return region_rm126x_au_915_is_acceptable_tx_dr( lr1_mac, dr, is_ch_mask_from_link_adr );
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+        return region_rm126x_nz_915_is_acceptable_tx_dr( lr1_mac, dr, is_ch_mask_from_link_adr );
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -1406,8 +2052,31 @@ status_lorawan_t smtc_real_is_nwk_received_tx_frequency_valid( lr1_stack_mac_t* 
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) ||                  \
+    defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
+    defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         status_lorawan_t status = OKLORAWAN;
         if( frequency == 0 )
@@ -1430,7 +2099,17 @@ status_lorawan_t smtc_real_is_nwk_received_tx_frequency_valid( lr1_stack_mac_t* 
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915:
 #endif
-#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 )
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
+#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
+    defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
         return ( ERRORLORAWAN );
     }
@@ -1469,8 +2148,31 @@ status_lorawan_t smtc_real_is_channel_index_valid( lr1_stack_mac_t* lr1_mac, uin
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) ||                  \
+    defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
+    defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         status_lorawan_t status = OKLORAWAN;
         if( ( channel_index < const_number_of_boot_tx_channel ) || ( channel_index >= const_number_of_tx_channel ) )
@@ -1494,7 +2196,17 @@ status_lorawan_t smtc_real_is_channel_index_valid( lr1_stack_mac_t* lr1_mac, uin
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915:
 #endif
-#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 )
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
+#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
+    defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
         return ( ERRORLORAWAN );
     }
@@ -1518,6 +2230,20 @@ status_lorawan_t smtc_real_is_payload_size_valid( lr1_stack_mac_t* lr1_mac, uint
 
 #if defined( REGION_AU_915 )
     if( lr1_mac->real->region_type == SMTC_REAL_REGION_AU_915 )
+    {
+        // *2 because the array contains Tx and Rx datarate
+        index = ( dwell_time_enabled * const_number_of_tx_dr * 2 ) + dr;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    if( lr1_mac->real->region_type == SMTC_REAL_REGION_RM126X_AU_915 )
+    {
+        // *2 because the array contains Tx and Rx datarate
+        index = ( dwell_time_enabled * const_number_of_tx_dr * 2 ) + dr;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    if( lr1_mac->real->region_type == SMTC_REAL_REGION_RM126X_NZ_915 )
     {
         // *2 because the array contains Tx and Rx datarate
         index = ( dwell_time_enabled * const_number_of_tx_dr * 2 ) + dr;
@@ -1561,8 +2287,31 @@ void smtc_real_set_tx_frequency_channel( lr1_stack_mac_t* lr1_mac, uint32_t tx_f
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) ||                  \
+    defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
+    defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
         if( channel_index >= const_number_of_tx_channel )
         {
             smtc_modem_hal_lr1mac_panic( );
@@ -1585,7 +2334,17 @@ void smtc_real_set_tx_frequency_channel( lr1_stack_mac_t* lr1_mac, uint32_t tx_f
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915:
 #endif
-#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 )
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
+#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
+    defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
         // Not supported
         break;
@@ -1625,8 +2384,31 @@ status_lorawan_t smtc_real_set_rx1_frequency_channel( lr1_stack_mac_t* lr1_mac, 
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
         if( channel_index >= const_number_of_rx_channel )
         {
             smtc_modem_hal_lr1mac_panic( );
@@ -1650,7 +2432,14 @@ status_lorawan_t smtc_real_set_rx1_frequency_channel( lr1_stack_mac_t* lr1_mac, 
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915:
 #endif
-#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 )
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
+    defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
         // Not supported
         return ERRORLORAWAN;
@@ -1691,8 +2480,31 @@ void smtc_real_set_channel_dr( lr1_stack_mac_t* lr1_mac, uint8_t channel_index, 
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
         if( channel_index >= const_number_of_tx_channel )
         {
             smtc_modem_hal_lr1mac_panic( );
@@ -1720,7 +2532,14 @@ void smtc_real_set_channel_dr( lr1_stack_mac_t* lr1_mac, uint8_t channel_index, 
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915:
 #endif
-#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 )
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
+    defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
         // Not supported
         break;
@@ -1759,8 +2578,31 @@ void smtc_real_set_channel_enabled( lr1_stack_mac_t* lr1_mac, uint8_t enable, ui
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
         if( channel_index >= const_number_of_tx_channel )
         {
             smtc_modem_hal_lr1mac_panic( );
@@ -1783,7 +2625,14 @@ void smtc_real_set_channel_enabled( lr1_stack_mac_t* lr1_mac, uint8_t enable, ui
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915:
 #endif
-#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 )
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
+    defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
         // Not supported
         break;
@@ -1822,8 +2671,31 @@ uint32_t smtc_real_get_tx_channel_frequency( lr1_stack_mac_t* lr1_mac, uint8_t c
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
         if( channel_index >= const_number_of_tx_channel )
         {
             smtc_modem_hal_lr1mac_panic( );
@@ -1852,6 +2724,18 @@ uint32_t smtc_real_get_tx_channel_frequency( lr1_stack_mac_t* lr1_mac, uint8_t c
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915: {
         return region_au_915_get_tx_frequency_channel( lr1_mac, channel_index );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        return region_rm126x_au_915_get_tx_frequency_channel( lr1_mac, channel_index );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        return region_rm126x_nz_915_get_tx_frequency_channel( lr1_mac, channel_index );
         break;
     }
 #endif
@@ -1889,8 +2773,31 @@ uint32_t smtc_real_get_rx1_channel_frequency( lr1_stack_mac_t* lr1_mac, uint8_t 
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_KR_920 ) || defined( REGION_RU_864 )
+    defined( REGION_KR_920 ) || defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
         if( channel_index >= const_number_of_rx_channel )
         {
             smtc_modem_hal_lr1mac_panic( );
@@ -1919,6 +2826,24 @@ uint32_t smtc_real_get_rx1_channel_frequency( lr1_stack_mac_t* lr1_mac, uint8_t 
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915: {
         return region_au_915_get_rx1_frequency_channel( lr1_mac, channel_index );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        return region_rm126x_au_915_get_rx1_frequency_channel( lr1_mac, channel_index );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        return region_rm126x_nz_915_get_rx1_frequency_channel( lr1_mac, channel_index );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        return region_rm126x_us_915_get_rx1_frequency_channel( lr1_mac, channel_index );
         break;
     }
 #endif
@@ -2155,6 +3080,66 @@ modulation_type_t smtc_real_get_modulation_type_from_datarate( lr1_stack_mac_t* 
         break;
     }
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        return region_rm126x_au_915_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        return region_rm126x_au_as_923_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        return region_rm126x_eu_868_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        return region_rm126x_in_865_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        return region_rm126x_jp_as_923_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        return region_rm126x_nz_915_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        return region_rm126x_nz_as_923_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        return region_rm126x_tw_as_923_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        return region_rm126x_uk_868_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        return region_rm126x_us_915_get_modulation_type_from_datarate( datarate );
+        break;
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -2231,6 +3216,66 @@ void smtc_real_lora_dr_to_sf_bw( lr1_stack_mac_t* lr1_mac, uint8_t in_dr, uint8_
         break;
     }
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        region_rm126x_au_as_923_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        region_rm126x_eu_868_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        region_rm126x_in_865_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        region_rm126x_jp_as_923_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        region_rm126x_nz_as_923_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        region_rm126x_tw_as_923_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        region_rm126x_uk_868_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_lora_dr_to_sf_bw( in_dr, out_sf, out_bw );
+        break;
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -2277,6 +3322,48 @@ void smtc_real_fsk_dr_to_bitrate( lr1_stack_mac_t* lr1_mac, uint8_t in_dr, uint8
         break;
     }
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923: {
+        region_rm126x_au_as_923_fsk_dr_to_bitrate( in_dr, out_bitrate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        region_rm126x_eu_868_fsk_dr_to_bitrate( in_dr, out_bitrate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865: {
+        region_rm126x_in_865_fsk_dr_to_bitrate( in_dr, out_bitrate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923: {
+        region_rm126x_jp_as_923_fsk_dr_to_bitrate( in_dr, out_bitrate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923: {
+        region_rm126x_nz_as_923_fsk_dr_to_bitrate( in_dr, out_bitrate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923: {
+        region_rm126x_tw_as_923_fsk_dr_to_bitrate( in_dr, out_bitrate );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        region_rm126x_uk_868_fsk_dr_to_bitrate( in_dr, out_bitrate );
+        break;
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -2306,6 +3393,36 @@ void smtc_real_lr_fhss_dr_to_cr_bw( lr1_stack_mac_t* lr1_mac, uint8_t in_dr, lr_
         break;
     }
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        region_rm126x_au_915_lr_fhss_dr_to_cr_bw( in_dr, out_cr, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868: {
+        region_rm126x_eu_868_lr_fhss_dr_to_cr_bw( in_dr, out_cr, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        region_rm126x_nz_915_lr_fhss_dr_to_cr_bw( in_dr, out_cr, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868: {
+        region_rm126x_uk_868_lr_fhss_dr_to_cr_bw( in_dr, out_cr, out_bw );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        region_rm126x_us_915_lr_fhss_dr_to_cr_bw( in_dr, out_cr, out_bw );
+        break;
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -2332,7 +3449,16 @@ lr_fhss_v1_grid_t smtc_real_lr_fhss_get_grid( lr1_stack_mac_t* lr1_mac )
     switch( lr1_mac->real->region_type )
     {
 #if defined( REGION_EU_868 )
-    case SMTC_REAL_REGION_EU_868: {
+    case SMTC_REAL_REGION_EU_868:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
+#if defined( REGION_EU_868 ) || defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_UK_868 )
+    {
         return LR_FHSS_V1_GRID_3906_HZ;
         break;
     }
@@ -2343,7 +3469,17 @@ lr_fhss_v1_grid_t smtc_real_lr_fhss_get_grid( lr1_stack_mac_t* lr1_mac )
 #if defined( REGION_AU_915 )
     case SMTC_REAL_REGION_AU_915:
 #endif
-#if defined( REGION_US_915 ) || defined( REGION_AU_915 )
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
+#if defined( REGION_US_915 ) || defined( REGION_AU_915 ) || defined( REGION_RM126X_AU_915 ) || \
+    defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
         return LR_FHSS_V1_GRID_25391_HZ;
         break;
@@ -2407,9 +3543,39 @@ int8_t smtc_real_clamp_output_power_eirp_vs_freq_and_dr( lr1_stack_mac_t* lr1_ma
 #if defined( REGION_RU_864 )
     case SMTC_REAL_REGION_RU_864:
 #endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915:
+#endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_AU_915 ) || \
     defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_IN_865 ) ||                     \
-    defined( REGION_RU_864 )
+    defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_AU_AS_923 ) || \
+    defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
+    defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || \
+    defined( REGION_RM126X_UK_868 )
     {
         return tx_power;
         break;
@@ -2417,7 +3583,13 @@ int8_t smtc_real_clamp_output_power_eirp_vs_freq_and_dr( lr1_stack_mac_t* lr1_ma
 #endif
 
 #if defined( REGION_US_915 )
-    case SMTC_REAL_REGION_US_915: {
+    case SMTC_REAL_REGION_US_915:
+#endif
+#if defined( REGION_RM126X_US_915)
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
+#if defined( REGION_US_915 ) || defined( REGION_RM126X_US_915 )
+    {
         if( datarate == DR4 )
         {
             return MIN( tx_power, 26 );
@@ -2536,7 +3708,11 @@ void smtc_real_set_sync_word( lr1_stack_mac_t* lr1_mac, uint8_t sync_word )
 uint8_t* smtc_real_get_gfsk_sync_word( lr1_stack_mac_t* lr1_mac )
 {
 #if defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_CN_470 ) || \
-    defined( REGION_CN_470_RP_1_0 ) || defined( REGION_IN_865 ) || defined( REGION_RU_864 )
+    defined( REGION_CN_470_RP_1_0 ) || defined( REGION_IN_865 ) || defined( REGION_RU_864 ) || \
+    defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
+    defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || \
+    defined( REGION_RM126X_UK_868 )
     return ( uint8_t* ) const_sync_word_gfsk;
 #endif
     smtc_modem_hal_lr1mac_panic( );
@@ -2545,7 +3721,10 @@ uint8_t* smtc_real_get_gfsk_sync_word( lr1_stack_mac_t* lr1_mac )
 
 uint8_t* smtc_real_get_lr_fhss_sync_word( lr1_stack_mac_t* lr1_mac )
 {
-#if defined( REGION_EU_868 ) || defined( REGION_AU_915 ) || defined( REGION_US_915 )
+#if defined( REGION_EU_868 ) || defined( REGION_AU_915 ) || defined( REGION_US_915 ) || \
+    defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_UK_868 ) || \
+    defined( REGION_RM126X_US_915 )
     return ( uint8_t* ) const_sync_word_lr_fhss;
 #endif
     smtc_modem_hal_lr1mac_panic( );
@@ -2606,7 +3785,20 @@ uint8_t smtc_real_get_max_payload_size( lr1_stack_mac_t* lr1_mac, uint8_t dr, ui
         index = ( dwell_time_enabled * const_number_of_tx_dr * 2 ) + dr;
     }
 #endif
-
+#if defined( REGION_RM126X_AU_915 )
+    if( lr1_mac->real->region_type == SMTC_REAL_REGION_RM126X_AU_915 )
+    {
+        // *2 because the array contains Tx and Rx datarate
+        index = ( dwell_time_enabled * const_number_of_tx_dr * 2 ) + dr;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    if( lr1_mac->real->region_type == SMTC_REAL_REGION_RM126X_NZ_915 )
+    {
+        // *2 because the array contains Tx and Rx datarate
+        index = ( dwell_time_enabled * const_number_of_tx_dr * 2 ) + dr;
+    }
+#endif
     return ( const_max_payload_m[index] );
 }
 
@@ -2647,8 +3839,31 @@ uint32_t smtc_real_get_beacon_frequency( lr1_stack_mac_t* lr1_mac, uint32_t gps_
 #if defined( REGION_KR_920 )
     case SMTC_REAL_REGION_KR_920:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_RU_864 ) || defined( SMTC_REAL_REGION_KR_920 )
+    defined( REGION_RU_864 ) || defined( REGION_RM126X_AU_AS_923 ) || defined( REGION_RM126X_EU_868 ) || \
+    defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
+    defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         return const_beacon_frequency;
         break;
@@ -2676,6 +3891,18 @@ uint32_t smtc_real_get_beacon_frequency( lr1_stack_mac_t* lr1_mac, uint32_t gps_
 #if defined( REGION_CN_470_RP_1_0 )
     case SMTC_REAL_REGION_CN_470_RP_1_0: {
         return region_cn_470_rp_1_0_get_rx_beacon_frequency_channel( lr1_mac, gps_time_s );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        return region_rm126x_au_915_get_rx_beacon_frequency_channel( lr1_mac, gps_time_s );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        return region_rm126x_nz_915_get_rx_beacon_frequency_channel( lr1_mac, gps_time_s );
         break;
     }
 #endif
@@ -2713,8 +3940,31 @@ uint32_t smtc_real_get_ping_slot_frequency( lr1_stack_mac_t* lr1_mac, uint32_t g
 #if defined( REGION_KR_920 )
     case SMTC_REAL_REGION_KR_920:
 #endif
+#if defined( REGION_RM126X_AU_AS_923 )
+    case SMTC_REAL_REGION_RM126X_AU_AS_923:
+#endif
+#if defined( REGION_RM126X_EU_868 )
+    case SMTC_REAL_REGION_RM126X_EU_868:
+#endif
+#if defined( REGION_RM126X_IN_865 )
+    case SMTC_REAL_REGION_RM126X_IN_865:
+#endif
+#if defined( REGION_RM126X_JP_AS_923 )
+    case SMTC_REAL_REGION_RM126X_JP_AS_923:
+#endif
+#if defined( REGION_RM126X_NZ_AS_923 )
+    case SMTC_REAL_REGION_RM126X_NZ_AS_923:
+#endif
+#if defined( REGION_RM126X_TW_AS_923 )
+    case SMTC_REAL_REGION_RM126X_TW_AS_923:
+#endif
+#if defined( REGION_RM126X_UK_868 )
+    case SMTC_REAL_REGION_RM126X_UK_868:
+#endif
 #if defined( REGION_WW2G4 ) || defined( REGION_EU_868 ) || defined( REGION_AS_923 ) || defined( REGION_IN_865 ) || \
-    defined( REGION_RU_864 ) || defined( SMTC_REAL_REGION_KR_920 )
+    defined( REGION_RU_864 ) || defined( SMTC_REAL_REGION_KR_920 ) || defined( REGION_RM126X_AU_AS_923 ) || \
+    defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
+    defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
         return const_ping_slot_frequency;
         break;
@@ -2742,6 +3992,18 @@ uint32_t smtc_real_get_ping_slot_frequency( lr1_stack_mac_t* lr1_mac, uint32_t g
 #if defined( REGION_CN_470_RP_1_0 )
     case SMTC_REAL_REGION_CN_470_RP_1_0: {
         return region_cn_470_rp_1_0_get_rx_ping_slot_frequency_channel( lr1_mac, gps_time_s, dev_addr );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_AU_915 )
+    case SMTC_REAL_REGION_RM126X_AU_915: {
+        return region_rm126x_au_915_get_rx_ping_slot_frequency_channel( lr1_mac, gps_time_s, dev_addr );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_NZ_915 )
+    case SMTC_REAL_REGION_RM126X_NZ_915: {
+        return region_rm126x_nz_915_get_rx_ping_slot_frequency_channel( lr1_mac, gps_time_s, dev_addr );
         break;
     }
 #endif
