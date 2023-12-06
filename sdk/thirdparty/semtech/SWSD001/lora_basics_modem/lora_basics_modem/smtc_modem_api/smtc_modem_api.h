@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -270,6 +271,16 @@ typedef enum smtc_modem_region_e
     SMTC_MODEM_REGION_RU_864        = 11,
     SMTC_MODEM_REGION_CN_470_RP_1_0 = 12,
     SMTC_MODEM_REGION_AS_923_GRP4   = 13,
+    SMTC_MODEM_REGION_RM126X_AU_915     = 14,
+    SMTC_MODEM_REGION_RM126X_AU_AS_923  = 15,
+    SMTC_MODEM_REGION_RM126X_EU_868     = 16,
+    SMTC_MODEM_REGION_RM126X_IN_865     = 17,
+    SMTC_MODEM_REGION_RM126X_JP_AS_923  = 18,
+    SMTC_MODEM_REGION_RM126X_NZ_915     = 20,
+    SMTC_MODEM_REGION_RM126X_NZ_AS_923  = 21,
+    SMTC_MODEM_REGION_RM126X_TW_AS_923  = 24,
+    SMTC_MODEM_REGION_RM126X_UK_868     = 25,
+    SMTC_MODEM_REGION_RM126X_US_915     = 26,
 } smtc_modem_region_t;
 
 /**
