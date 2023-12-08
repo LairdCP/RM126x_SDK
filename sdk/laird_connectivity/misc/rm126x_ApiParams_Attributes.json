@@ -1,0 +1,1147 @@
+{
+  "openrpc": "1.2.6",
+  "info": {
+    "title": "RM126x Attributes",
+    "version": "1.00",
+    "x-serialbleuuid": null,
+    "x-smpgroupid": 0
+  },
+  "methods": [
+  ],
+  "components": {
+    "contentDescriptors": {
+      "deviceParams": {
+        "name": "Device Attribute Parameters",
+        "schema": {
+          "name": "Device Attribute Parameters List.",
+          "type": "array",
+          "summary": null,
+          "description": "The following attributes can be saved to FLASH."
+        },
+        "x-deviceparameters": [
+          {
+            "name": "lora_modem_dm_port",
+            "summary": "Modem DM port for modem context saving.",
+            "required": true,
+            "x-id": 0,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535,
+              "x-ctype": "uint16_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_modem_upload_sctr",
+            "summary": "Modem upload SCTR for modem context saving.",
+            "required": true,
+            "x-id": 1,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535,
+              "x-ctype": "uint16_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_modem_app_key_crc_status",
+            "summary": "Modem app key CRC status for modem context saving.",
+            "required": true,
+            "x-id": 2,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_modem_app_key_crc",
+            "summary": "Modem app key CRC for modem context saving.",
+            "required": true,
+            "x-id": 3,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_modem_rfu_1",
+            "summary": "Modem RFU 1 for modem context saving.",
+            "required": true,
+            "x-id": 4,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_modem_rfu_2",
+            "summary": "Modem RFU 2 for modem context saving.",
+            "required": true,
+            "x-id": 5,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_modem_rfu_3",
+            "summary": "RFU 3 for LoRa modem context saving.",
+            "required": true,
+            "x-id": 6,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_adr_custom",
+            "summary": "ADR Custom for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 7,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_region_type",
+            "summary": "Region type setting for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 8,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_certification_enabled",
+            "summary": "Certification enabled setting for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 9,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_1",
+            "summary": "RFU 1 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 10,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_2",
+            "summary": "RFU 2 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 11,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_3",
+            "summary": "RFU 3 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 12,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_4",
+            "summary": "RFU 4 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 13,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_5",
+            "summary": "RFU 5 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 14,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_6",
+            "summary": "RFU 6 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 15,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_7",
+            "summary": "RFU 7 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 16,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_8",
+            "summary": "RFU 8 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 17,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_9",
+            "summary": "RFU 9 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 18,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_10",
+            "summary": "RFU 10 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 19,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_rfu_11",
+            "summary": "RFU 11 for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 20,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "x-ctype": "uint8_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_mac_crc",
+            "summary": "CRC for LoRa MAC context saving.",
+            "required": true,
+            "x-id": 21,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_devnonce_devnonce",
+            "summary": "Last Nonce value for LoRa DEVNONCE context saving.",
+            "required": true,
+            "x-id": 22,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535,
+              "x-ctype": "uint16_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_devnonce_nb_reset",
+            "summary": "Number of resets for LoRa DEVNONCE context saving.",
+            "required": true,
+            "x-id": 23,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_devnonce_join_nonce",
+            "summary": "Hex string representation of the 6 byte join nonce value for context saving.",
+            "required": true,
+            "x-id": 24,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 12,
+              "maximumlength": 12,
+              "x-ctype": "string",
+              "x-default": "000000000000",
+              "x-example": "010203040506",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_devnonce_rfu_1",
+            "summary": "RFU 1 for LoRa DEVNONCE context saving.",
+            "required": true,
+            "x-id": 25,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_devnonce_rfu_2",
+            "summary": "RFU 2 for LoRa DEVNONCE context saving.",
+            "required": true,
+            "x-id": 26,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_devnonce_rfu_3",
+            "summary": "RFU 3 for LoRa DEVNONCE context saving.",
+            "required": true,
+            "x-id": 27,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_devnonce_crc",
+            "summary": "CRC for LoRa DEVNONCE context saving.",
+            "required": true,
+            "x-id": 28,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_modem_crc",
+            "summary": "CRC for LoRa modem context saving.",
+            "required": true,
+            "x-id": 29,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_deveui",
+            "summary": "Hex string representation of the 8 byte device EUI value for context saving.",
+            "required": true,
+            "x-id": 30,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 16,
+              "maximumlength": 16,
+              "x-ctype": "string",
+              "x-default": "0000000000000000",
+              "x-example": "0102030405060708",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_joineui",
+            "summary": "Hex string representation of the 8 byte join EUI value for context saving.",
+            "required": true,
+            "x-id": 31,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 16,
+              "maximumlength": 16,
+              "x-ctype": "string",
+              "x-default": "0000000000000000",
+              "x-example": "0102030405060708",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_pin",
+            "summary": "Hex string representation of the 4 byte PIN value for context saving.",
+            "required": true,
+            "x-id": 32,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 8,
+              "maximumlength": 8,
+              "x-ctype": "string",
+              "x-default": "00000000",
+              "x-example": "01020304",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_1",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 33,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_2",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 34,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_3",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 35,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_4",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 36,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_5",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 37,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_6",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 38,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_7",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 39,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_8",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 40,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_9",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 41,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_10",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 42,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_11",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 43,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_12",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 44,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_13",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 45,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_14",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 46,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_15",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 47,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_16",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 48,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_17",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 49,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_18",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 50,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_19",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 51,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_20",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 52,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_21",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 53,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_22",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 54,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_23",
+            "summary": "Hex string representation of a 16 byte key value for context saving.",
+            "required": true,
+            "x-id": 55,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_map_1",
+            "summary": "Hex string representation of a 16 byte key type map value for context saving.",
+            "required": true,
+            "x-id": 56,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_key_map_2",
+            "summary": "Hex string representation of a 16 byte key type map value for context saving.",
+            "required": true,
+            "x-id": 57,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 32,
+              "maximumlength": 32,
+              "x-ctype": "string",
+              "x-default": "000000000000000000000000000000",
+              "x-example": "0102030405060708090A0B0C0D0E0F",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          },
+          {
+            "name": "lora_se_crc",
+            "summary": "CRC for LoRa SE context saving.",
+            "required": true,
+            "x-id": 58,
+            "x-groupid": 65,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-ctype": "uint32_t",
+              "x-default": "0",
+              "x-example": "0",
+              "x-savable": true,
+              "x-writeable": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          }
+       ]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "openrpc": "1.2.6",
+  "info": {
+    "title": "RM126x Core (Global) Attributes",
+    "version": "1.00",
+    "x-serialbleuuid": null,
+    "x-smpgroupid": 0
+  },
+  "methods": [
+  ],
+  "components": {
+    "contentDescriptors": {
+      "deviceParams": {
+        "name": "Core Device Parameters",
+        "schema": {
+          "name": "Core Device Parameters List.",
+          "type": "array",
+          "summary": null,
+          "description": "The following parameters are the core attributes (global) on the device."
+        },
+        "x-deviceparameters": [
+          {
+            "name": "device_id",
+            "summary": "Unique device name, conditional depending upon variant.",
+            "required": true,
+            "x-id": 0,
+            "x-groupid": 65,
+            "schema": {
+              "type": "string",
+              "minimumlength": 6,
+              "maximumlength": 6,
+              "x-ctype": "string",
+              "x-default": "RM126X",
+              "x-example": "RM1261",
+              "x-prepare": true,
+              "x-readable": true,
+              "x-sreg": -1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
