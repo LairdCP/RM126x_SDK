@@ -5,6 +5,7 @@
  *
  * Revised BSD License
  * Copyright Semtech Corporation 2020. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -74,6 +75,12 @@ extern "C" {
  */
 #define SMTC_SE_MULTICAST_KEYS 127
 
+
+/*!
+ * Number of keys supported in soft secure element
+ */
+#define SOFT_SE_NUMBER_OF_KEYS 23
+
 /*
  * -----------------------------------------------------------------------------
  * --- PUBLIC TYPES ------------------------------------------------------------
@@ -142,6 +149,41 @@ typedef enum smtc_se_key_identifier_e
     SMTC_SE_SLOT_RAND_ZERO_KEY,                  //!< Zero key for slot randomization in class B
     SMTC_SE_NO_KEY,                              //!< No Key
 } smtc_se_key_identifier_t;
+
+/**
+ * @brief Key structure definition for the soft-se
+ *
+ * @struct soft_se_key_t
+ */
+typedef struct soft_se_key_s
+{
+    smtc_se_key_identifier_t key_id;                       //!< Key identifier
+    uint8_t                  key_value[SMTC_SE_KEY_SIZE];  //!< Key value
+} soft_se_key_t;
+
+/**
+ * @brief Structure for data needed by soft secure element
+ *
+ * @struct soft_se_data_t
+ */
+typedef struct soft_se_data_s
+{
+    uint8_t       deveui[SMTC_SE_EUI_SIZE];          //!< DevEUI storage
+    uint8_t       joineui[SMTC_SE_EUI_SIZE];         //!< Join EUI storage
+    uint8_t       pin[SMTC_SE_PIN_SIZE];             //!< pin storage
+    soft_se_key_t key_list[SOFT_SE_NUMBER_OF_KEYS];  //!< The key list
+} soft_se_data_t;
+
+/**
+ * @brief Struture for soft secure element context saving in NVM
+ *
+ * @struct soft_se_context_nvm_t
+ */
+typedef struct soft_se_context_nvm_s
+{
+    soft_se_data_t data;
+    uint32_t       crc;
+} soft_se_context_nvm_t;
 
 /*
  * -----------------------------------------------------------------------------

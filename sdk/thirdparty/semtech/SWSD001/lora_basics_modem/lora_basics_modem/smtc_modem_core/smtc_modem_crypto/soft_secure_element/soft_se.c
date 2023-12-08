@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -59,12 +60,6 @@
  * -----------------------------------------------------------------------------
  * --- PRIVATE CONSTANTS -------------------------------------------------------
  */
-
-/*!
- * Number of keys supported in soft secure element
- */
-#define SOFT_SE_NUMBER_OF_KEYS 23
-
 /*!
  * JoinAccept frame maximum size
  */
@@ -279,41 +274,6 @@
  * -----------------------------------------------------------------------------
  * --- PRIVATE TYPES -----------------------------------------------------------
  */
-
-/**
- * @brief Key structure definition for the soft-se
- *
- * @struct soft_se_key_t
- */
-typedef struct soft_se_key_s
-{
-    smtc_se_key_identifier_t key_id;                       //!< Key identifier
-    uint8_t                  key_value[SMTC_SE_KEY_SIZE];  //!< Key value
-} soft_se_key_t;
-
-/**
- * @brief Structure for data needed by soft secure element
- *
- * @struct soft_se_data_t
- */
-typedef struct soft_se_data_s
-{
-    uint8_t       deveui[SMTC_SE_EUI_SIZE];          //!< DevEUI storage
-    uint8_t       joineui[SMTC_SE_EUI_SIZE];         //!< Join EUI storage
-    uint8_t       pin[SMTC_SE_PIN_SIZE];             //!< pin storage
-    soft_se_key_t key_list[SOFT_SE_NUMBER_OF_KEYS];  //!< The key list
-} soft_se_data_t;
-
-/**
- * @brief Struture for soft secure element context saving in NVM
- *
- * @struct soft_se_context_nvm_t
- */
-typedef struct soft_se_context_nvm_s
-{
-    soft_se_data_t data;
-    uint32_t       crc;
-} soft_se_context_nvm_t;
 
 /*
  * -----------------------------------------------------------------------------
@@ -672,22 +632,8 @@ smtc_se_return_code_t smtc_secure_element_restore_context( void )
 {
     soft_se_context_nvm_t ctx;
     smtc_modem_hal_context_restore( CONTEXT_SECURE_ELEMENT, ( uint8_t* ) &ctx, sizeof( ctx ) );
-    if( soft_ce_crc( ( uint8_t* ) &ctx, sizeof( ctx ) - 4 ) == ctx.crc )
-    {
-        soft_se_data = ctx.data;
-        return SMTC_SE_RC_SUCCESS;
-    }
-    else
-    {
-        SMTC_MODEM_HAL_TRACE_ERROR( "Restore of Secure Element context fails => Return to init values\n" );
-        soft_se_data_t local_data = { .deveui   = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-                                      .joineui  = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
-                                      .pin      = { 0x00, 0x00, 0x00, 0x00 },
-                                      .key_list = SOFT_SE_KEY_LIST };
-        // init soft secure element data euis and pin to 0 and key_list with empty lut
-        memcpy( ( uint8_t* ) &soft_se_data, ( uint8_t* ) &local_data, sizeof( local_data ) );
-        return SMTC_SE_RC_ERROR;
-    }
+    soft_se_data = ctx.data;
+    return SMTC_SE_RC_SUCCESS;
 }
 /*
  * -----------------------------------------------------------------------------

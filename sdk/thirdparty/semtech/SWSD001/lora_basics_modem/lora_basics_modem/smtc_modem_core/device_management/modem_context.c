@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -90,16 +91,6 @@
  * -----------------------------------------------------------------------------
  * --- PRIVATE VARIABLES -------------------------------------------------------
  */
-typedef struct modem_context_nvm_idx_s
-{
-    uint16_t dm_port;
-    uint16_t dm_upload_sctr;
-    uint8_t  appkey_crc_status;
-    uint32_t appkey_crc;
-    uint32_t rfu[3];
-    uint32_t crc;  // !! crc MUST be the last field of the structure !!
-} modem_context_nvm_t;
-
 #if !defined( LR1110_MODEM_E )
 static int16_t  modem_appkey_status = MODEM_APPKEY_CRC_STATUS_INVALID;
 static uint32_t modem_appkey_crc    = 0;
