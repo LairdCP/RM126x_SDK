@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -39,6 +40,7 @@
 
 #include "ralf_sx126x.h"
 #include "ral.h"
+#include "smtc_modem_hal.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -176,6 +178,8 @@ ral_status_t ralf_sx126x_setup_lora( const ralf_t* radio, const ralf_params_lora
 
 ral_status_t ralf_sx126x_setup_flrc( const ralf_t* radio, const ralf_params_flrc_t* params )
 {
+    UNUSED( radio );
+    UNUSED( params );
     return RAL_STATUS_UNSUPPORTED_FEATURE;
 }
 
