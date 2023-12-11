@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -44,6 +45,7 @@
 #include "sx126x_lr_fhss.h"
 #include "ral_sx126x.h"
 #include "ral_sx126x_bsp.h"
+#include "smtc_modem_hal.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -803,10 +805,14 @@ ral_status_t ral_sx126x_set_lora_symb_nb_timeout( const void* context, const uin
 
 ral_status_t ral_sx126x_set_flrc_mod_params( const void* context, const ral_flrc_mod_params_t* params )
 {
+    UNUSED( context );
+    UNUSED( params );
     return RAL_STATUS_UNSUPPORTED_FEATURE;
 }
 ral_status_t ral_sx126x_set_flrc_pkt_params( const void* context, const ral_flrc_pkt_params_t* params )
 {
+    UNUSED( context );
+    UNUSED( params );
     return RAL_STATUS_UNSUPPORTED_FEATURE;
 }
 
@@ -857,6 +863,8 @@ ral_status_t ral_sx126x_get_lora_rx_pkt_status( const void* context, ral_lora_rx
 
 ral_status_t ral_sx126x_get_flrc_rx_pkt_status( const void* context, ral_flrc_rx_pkt_status_t* rx_pkt_status )
 {
+    UNUSED( context );
+    UNUSED( rx_pkt_status );
     return RAL_STATUS_UNSUPPORTED_FEATURE;
 }
 
@@ -889,6 +897,8 @@ uint32_t ral_sx126x_get_gfsk_time_on_air_in_ms( const ral_gfsk_pkt_params_t* pkt
 
 uint32_t ral_sx126x_get_flrc_time_on_air_in_ms( const ral_flrc_pkt_params_t* pkt_p, const ral_flrc_mod_params_t* mod_p )
 {
+    UNUSED(pkt_p);
+    UNUSED(mod_p);
     return RAL_STATUS_UNSUPPORTED_FEATURE;
 }
 
@@ -904,6 +914,9 @@ ral_status_t ral_sx126x_set_lora_sync_word( const void* context, const uint8_t s
 
 ral_status_t ral_sx126x_set_flrc_sync_word( const void* context, const uint8_t* sync_word, const uint8_t sync_word_len )
 {
+    UNUSED( context );
+    UNUSED( sync_word );
+    UNUSED( sync_word_len );
     return RAL_STATUS_UNSUPPORTED_FEATURE;
 }
 
@@ -928,6 +941,8 @@ ral_status_t ral_sx126x_set_gfsk_crc_params( const void* context, const uint16_t
 
 ral_status_t ral_sx126x_set_flrc_crc_params( const void* context, const uint32_t seed )
 {
+    UNUSED( context );
+    UNUSED( seed );
     return RAL_STATUS_UNSUPPORTED_FEATURE;
 }
 
@@ -976,6 +991,7 @@ ral_status_t ral_sx126x_lr_fhss_handle_tx_done( const void* context, const ral_l
 ral_status_t ral_sx126x_lr_fhss_get_time_on_air_in_ms( const void* context, const ral_lr_fhss_params_t* lr_fhss_params,
                                                        uint16_t payload_length, uint32_t* time_on_air )
 {
+    UNUSED( context );
     sx126x_lr_fhss_params_t sx126x_params;
     ral_sx126x_convert_lr_fhss_params_from_ral( lr_fhss_params, &sx126x_params );
 
@@ -987,6 +1003,7 @@ ral_status_t ral_sx126x_lr_fhss_get_time_on_air_in_ms( const void* context, cons
 ral_status_t ral_sx126x_lr_fhss_get_hop_sequence_count( const void*                 context,
                                                         const ral_lr_fhss_params_t* lr_fhss_params )
 {
+    UNUSED( context );
     sx126x_lr_fhss_params_t sx126x_params;
     ral_sx126x_convert_lr_fhss_params_from_ral( lr_fhss_params, &sx126x_params );
 
@@ -1093,6 +1110,8 @@ ral_status_t ral_sx126x_get_gfsk_rx_consumption_in_ua( const void* context, cons
                                                        const uint32_t bw_dsb_in_hz, const bool rx_boosted,
                                                        uint32_t* pwr_consumption_in_ua )
 {
+    UNUSED( br_in_bps );
+    UNUSED( bw_dsb_in_hz );
     sx126x_reg_mod_t radio_reg_mode;
 
     ral_sx126x_bsp_get_reg_mode( context, &radio_reg_mode );
@@ -1116,6 +1135,7 @@ ral_status_t ral_sx126x_get_gfsk_rx_consumption_in_ua( const void* context, cons
 ral_status_t ral_sx126x_get_lora_rx_consumption_in_ua( const void* context, const ral_lora_bw_t bw,
                                                        const bool rx_boosted, uint32_t* pwr_consumption_in_ua )
 {
+    UNUSED( bw );
     sx126x_reg_mod_t radio_reg_mode;
 
     ral_sx126x_bsp_get_reg_mode( context, &radio_reg_mode );

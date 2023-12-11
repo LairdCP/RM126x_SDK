@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -442,6 +443,7 @@ void rp_radio_irq( radio_planner_t* rp )
 
 static void rp_task_free( const radio_planner_t* rp, rp_task_t* task )
 {
+    UNUSED( rp );
     task->hook_id            = RP_NB_HOOKS;
     task->start_time_ms      = 0;
     task->start_time_init_ms = 0;
@@ -497,6 +499,7 @@ static void rp_task_update_time( radio_planner_t* rp, uint32_t now )
 
 static void rp_task_arbiter( radio_planner_t* rp, const char* caller_func_name )
 {
+    UNUSED( caller_func_name );
     uint32_t now = rp_hal_get_time_in_ms( );
 
     // Update time for ASAP task to now. But, also extended duration in case of running task is a RX task
@@ -925,6 +928,7 @@ static void rp_hook_callback( radio_planner_t* rp, uint8_t id )
 
 static void rp_task_print( const radio_planner_t* rp, const rp_task_t* task )
 {
+    UNUSED( rp );
     SMTC_MODEM_HAL_RP_TRACE_PRINTF( "\nRP- INFO - Radio task #%u  running - Timer task #%u running  - Hook ID #%u -",
                                     rp->radio_task_id, rp->timer_task_id, task->hook_id );
     switch( task->type )
