@@ -5,6 +5,7 @@
  *
  * Revised BSD License
  * Copyright Semtech Corporation 2020. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -571,6 +572,7 @@ static rp_task_types_t get_beacon_rp_task_type( smtc_lr1_beacon_t* lr1_beacon_ob
 
 static void compute_beacon_metadata( smtc_lr1_beacon_t* lr1_beacon_obj, uint32_t timestamp, uint32_t beacon_epoch_time )
 {
+    UNUSED( beacon_epoch_time );
     lr1_beacon_obj->beacon_metadata.rx_metadata.rx_fpending_bit = 0;
     lr1_beacon_obj->beacon_metadata.rx_metadata.rx_fport        = 0;
 
