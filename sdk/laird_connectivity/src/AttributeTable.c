@@ -52,7 +52,6 @@
 #include <stdint.h>
 #include <string.h>
 #include "app.h"
-#include "app_version.h"
 #include "AttributeTable.h"
 
 /******************************************************************************/
