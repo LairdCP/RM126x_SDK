@@ -153,8 +153,6 @@ void region_rm126x_uk_868_config( lr1_stack_mac_t* lr1_mac )
         smtc_duty_cycle_config( lr1_mac->dtc_obj, const_dtc_number_of_band, i, duty_cycle_by_band_rm126x_uk_868[i],
                                 frequency_range_by_band_rm126x_uk_868[i][0], frequency_range_by_band_rm126x_uk_868[i][1] );
     }
-    // Set RX2 channel metadata
-    lr1_mac->rx2_channel = RX2_CHANNEL_RM126X_UK_868;
 }
 
 void region_rm126x_uk_868_init( lr1_stack_mac_t* lr1_mac )
@@ -222,10 +220,6 @@ status_lorawan_t region_rm126x_uk_868_get_next_channel( lr1_stack_mac_t* lr1_mac
     {
         lr1_mac->tx_frequency  = tx_frequency_channel[channel_idx];
         lr1_mac->rx1_frequency = rx1_frequency_channel[channel_idx];
-
-        // Add channel metadata
-        lr1_mac->rx_channel = channel_idx;
-        lr1_mac->tx_channel = channel_idx;
     }
     return OKLORAWAN;
 }
