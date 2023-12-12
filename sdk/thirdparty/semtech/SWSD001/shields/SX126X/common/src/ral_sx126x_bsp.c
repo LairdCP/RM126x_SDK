@@ -5,6 +5,7 @@
  *
  * Revised BSD License
  * Copyright Semtech Corporation 2022. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -37,6 +38,7 @@
 #include "ral_sx126x_bsp.h"
 #include "smtc_board.h"
 #include "smtc_shield_sx126x_common_if.h"
+#include "smtc_modem_hal.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -70,17 +72,20 @@
 
 void ral_sx126x_bsp_get_reg_mode( const void* context, sx126x_reg_mod_t* reg_mode )
 {
+    UNUSED( context );
     *reg_mode = smtc_shield_sx126x_get_reg_mode( );
 }
 
 void ral_sx126x_bsp_get_rf_switch_cfg( const void* context, bool* dio2_is_set_as_rf_switch )
 {
+    UNUSED( context );
     *dio2_is_set_as_rf_switch = smtc_shield_sx126x_is_dio2_set_as_rf_switch( );
 }
 
 void ral_sx126x_bsp_get_tx_cfg( const void* context, const ral_sx126x_bsp_tx_cfg_input_params_t* input_params,
                                 ral_sx126x_bsp_tx_cfg_output_params_t* output_params )
 {
+    UNUSED( context );
     const int8_t modem_tx_offset = smtc_board_get_tx_power_offset( );
 
     const smtc_shield_sx126x_pa_pwr_cfg_t* pa_pwr_cfg = smtc_shield_sx126x_get_pa_pwr_cfg(
@@ -99,11 +104,13 @@ void ral_sx126x_bsp_get_tx_cfg( const void* context, const ral_sx126x_bsp_tx_cfg
 void ral_sx126x_bsp_get_xosc_cfg( const void* context, bool* tcxo_is_radio_controlled,
                                   sx126x_tcxo_ctrl_voltages_t* supply_voltage, uint32_t* startup_time_in_tick )
 {
+    UNUSED( context );
     smtc_shield_sx126x_get_xosc_cfg( tcxo_is_radio_controlled, supply_voltage, startup_time_in_tick );
 }
 
 void ral_sx126x_bsp_get_ocp_value( const void* context, uint8_t* ocp_in_step_of_2_5_ma )
 {
+    UNUSED( context );
     smtc_shield_sx126x_get_ocp_value( ocp_in_step_of_2_5_ma );
 }
 
