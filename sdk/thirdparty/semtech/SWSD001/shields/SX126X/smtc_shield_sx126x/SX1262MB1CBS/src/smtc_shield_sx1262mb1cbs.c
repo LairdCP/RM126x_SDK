@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2022. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -59,16 +60,16 @@
 // PA config table
 const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262MB1CBS_MIN_PWR + 1] = {
     { // Expected output power = -9dBm
-        .power = 2,
+        .power = 3,
         .pa_config = {
             .hp_max        = 0x01,
-            .pa_duty_cycle = 0x02,
+            .pa_duty_cycle = 0x01,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
     },
     { // Expected output power = -8dBm
-        .power = 5,
+        .power = 4,
         .pa_config = {
             .hp_max        = 0x01,
             .pa_duty_cycle = 0x01,
@@ -77,10 +78,10 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
         },
     },
     { // Expected output power = -7dBm
-        .power = 5,
+        .power = 7,
         .pa_config = {
             .hp_max        = 0x01,
-            .pa_duty_cycle = 0x02,
+            .pa_duty_cycle = 0x00,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
@@ -95,7 +96,7 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
         },
     },
     { // Expected output power = -5dBm
-        .power = 9,
+        .power = 8,
         .pa_config = {
             .hp_max        = 0x01,
             .pa_duty_cycle = 0x00,
@@ -113,16 +114,16 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
         },
     },
     { // Expected output power = -3dBm
-        .power = 11,
+        .power = 8,
         .pa_config = {
             .hp_max        = 0x01,
-            .pa_duty_cycle = 0x00,
+            .pa_duty_cycle = 0x03,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
     },
     { // Expected output power = -2dBm
-        .power = 13,
+        .power = 12,
         .pa_config = {
             .hp_max        = 0x01,
             .pa_duty_cycle = 0x00,
@@ -131,7 +132,7 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
         },
     },
     { // Expected output power = -1dBm
-        .power = 19,
+        .power = 15,
         .pa_config = {
             .hp_max        = 0x01,
             .pa_duty_cycle = 0x00,
@@ -140,7 +141,7 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
         },
     },
     { // Expected output power = 0dBm
-        .power = 17,
+        .power = 14,
         .pa_config = {
             .hp_max        = 0x01,
             .pa_duty_cycle = 0x01,
@@ -149,19 +150,19 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
         },
     },
     { // Expected output power = 1dBm
-        .power = 16,
+        .power = 20,
         .pa_config = {
             .hp_max        = 0x01,
-            .pa_duty_cycle = 0x01,
+            .pa_duty_cycle = 0x00,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
     },
     { // Expected output power = 2dBm
-        .power = 20,
+        .power = 19,
         .pa_config = {
             .hp_max        = 0x01,
-            .pa_duty_cycle = 0x00,
+            .pa_duty_cycle = 0x02,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
@@ -176,18 +177,18 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
         },
     },
     { // Expected output power = 4dBm
-        .power = 16,
+        .power = 21,
         .pa_config = {
-            .hp_max        = 0x02,
+            .hp_max        = 0x01,
             .pa_duty_cycle = 0x00,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
     },
     { // Expected output power = 5dBm
-        .power = 21,
+        .power = 18,
         .pa_config = {
-            .hp_max        = 0x01,
+            .hp_max        = 0x02,
             .pa_duty_cycle = 0x00,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
@@ -304,8 +305,8 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
     { // Expected output power = 18dBm
         .power = 22,
         .pa_config = {
-            .hp_max        = 0x07,
-            .pa_duty_cycle = 0x00,
+            .hp_max        = 0x05,
+            .pa_duty_cycle = 0x01,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
@@ -313,8 +314,8 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
     { // Expected output power = 19dBm
         .power = 22,
         .pa_config = {
-            .hp_max        = 0x06,
-            .pa_duty_cycle = 0x01,
+            .hp_max        = 0x04,
+            .pa_duty_cycle = 0x04,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
@@ -322,8 +323,8 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
     { // Expected output power = 20dBm
         .power = 22,
         .pa_config = {
-            .hp_max        = 0x07,
-            .pa_duty_cycle = 0x02,
+            .hp_max        = 0x06,
+            .pa_duty_cycle = 0x03,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
@@ -331,8 +332,8 @@ const smtc_shield_sx126x_pa_pwr_cfg_t pa_cfg_table[SX1262MB1CBS_MAX_PWR - SX1262
     { // Expected output power = 21dBm
         .power = 22,
         .pa_config = {
-            .hp_max        = 0x06,
-            .pa_duty_cycle = 0x04,
+            .hp_max        = 0x07,
+            .pa_duty_cycle = 0x03,
             .device_sel    = 0x00,
             .pa_lut        = 0x01,
         },
@@ -402,8 +403,8 @@ void smtc_shield_sx126x_get_xosc_cfg( bool* tcxo_is_radio_controlled, sx126x_tcx
                                       uint32_t* startup_time_in_tick )
 {
     *tcxo_is_radio_controlled = true;
-    *supply_voltage           = SX126X_TCXO_CTRL_3_0V;
-    *startup_time_in_tick     = 300;
+    *supply_voltage           = SX126X_TCXO_CTRL_1_8V;
+    *startup_time_in_tick     = 320;
 }
 
 void smtc_shield_sx126x_get_ocp_value( uint8_t* ocp_in_step_of_2_5_ma )

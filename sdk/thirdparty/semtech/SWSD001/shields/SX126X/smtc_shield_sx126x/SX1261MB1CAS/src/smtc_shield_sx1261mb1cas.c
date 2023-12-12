@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2022. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -406,8 +407,8 @@ void smtc_shield_sx126x_get_xosc_cfg( bool* tcxo_is_radio_controlled, sx126x_tcx
                                       uint32_t* startup_time_in_tick )
 {
     *tcxo_is_radio_controlled = true;
-    *supply_voltage           = SX126X_TCXO_CTRL_3_0V;
-    *startup_time_in_tick     = 300;
+    *supply_voltage           = SX126X_TCXO_CTRL_1_8V;
+    *startup_time_in_tick     = 320;
 }
 
 void smtc_shield_sx126x_get_ocp_value( uint8_t* ocp_in_step_of_2_5_ma )
