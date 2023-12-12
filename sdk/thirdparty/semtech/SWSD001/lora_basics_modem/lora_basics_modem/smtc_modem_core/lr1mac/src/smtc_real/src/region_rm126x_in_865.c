@@ -139,9 +139,6 @@ void region_rm126x_in_865_config( lr1_stack_mac_t* lr1_mac )
 
     memset1( dr_distribution_init, 1, const_number_of_tx_dr );
     memset1( dr_distribution, 0, const_number_of_tx_dr );
-
-    // Set RX2 channel metadata
-    lr1_mac->rx2_channel = RX2_CHANNEL_RM126X_IN_865;
 }
 
 void region_rm126x_in_865_init( lr1_stack_mac_t* lr1_mac )
@@ -216,10 +213,6 @@ status_lorawan_t region_rm126x_in_865_get_next_channel( lr1_stack_mac_t* lr1_mac
     {
         lr1_mac->tx_frequency  = tx_frequency_channel[channel_idx];
         lr1_mac->rx1_frequency = rx1_frequency_channel[channel_idx];
-
-        // Add channel metadata
-        lr1_mac->rx_channel = channel_idx;
-        lr1_mac->tx_channel = channel_idx;
     }
     return OKLORAWAN;
 }
