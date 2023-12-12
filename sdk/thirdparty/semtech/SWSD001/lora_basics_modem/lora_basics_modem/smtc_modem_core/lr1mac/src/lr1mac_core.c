@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -916,6 +917,8 @@ uint8_t lr1mac_core_certification_get( lr1_stack_mac_t* lr1_mac_obj )
 
 lr1mac_version_t lr1mac_core_get_lorawan_version( lr1_stack_mac_t* lr1_mac_obj )
 {
+    UNUSED( lr1_mac_obj );
+
     lr1mac_version_t version = { .major    = LORAWAN_VERSION_MAJOR,
                                  .minor    = LORAWAN_VERSION_MINOR,
                                  .patch    = LORAWAN_VERSION_PATCH,
@@ -994,6 +997,8 @@ void lr1mac_core_set_device_time_callback( lr1_stack_mac_t* lr1_mac_obj,
                                            void ( *device_time_callback )( void* context, uint32_t rx_timestamp_s ),
                                            void* context, uint32_t rx_timestamp_s )
 {
+    UNUSED( rx_timestamp_s );
+
     if( device_time_callback != NULL )
     {
         lr1_mac_obj->device_time_callback         = device_time_callback;

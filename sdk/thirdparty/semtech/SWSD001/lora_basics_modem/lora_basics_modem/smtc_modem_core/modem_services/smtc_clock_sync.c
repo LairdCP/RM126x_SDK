@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -50,6 +51,8 @@
 #if defined( CLOCK_SYNC_GPS_EPOCH_CONVERT )
 #include <time.h>
 #endif
+
+#include "smtc_modem_hal.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -143,6 +146,7 @@ clock_sync_ret_t clock_sync_set_alcsync_port( clock_sync_ctx_t* ctx, uint8_t por
 
 void clock_sync_callback( clock_sync_ctx_t* ctx, uint32_t rx_timestamp_s )
 {
+    UNUSED( rx_timestamp_s );
     uint32_t interval_s = 0;
 
     if( ctx->sync_service_type == CLOCK_SYNC_MAC )
