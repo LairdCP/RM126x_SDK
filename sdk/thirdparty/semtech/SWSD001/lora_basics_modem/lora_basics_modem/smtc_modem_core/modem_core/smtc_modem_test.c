@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -771,6 +772,7 @@ smtc_modem_return_code_t smtc_modem_test_direct_radio_read( uint8_t* command, ui
 
 void modem_test_empty_callback( modem_test_context_t* context )
 {
+    UNUSED( context );
     SMTC_MODEM_HAL_TRACE_PRINTF( "TEST mode Empty callback\n" );
 }
 
