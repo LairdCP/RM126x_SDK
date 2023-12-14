@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -529,6 +530,7 @@ void lorawan_certification_build_beacon_rx_status_ind( lorawan_certification_t* 
                                                        uint8_t* tx_buffer, uint8_t* tx_buffer_length, int8_t rssi,
                                                        int8_t snr, uint8_t beacon_dr, uint32_t beacon_freq )
 {
+    UNUSED( beacon_buffer_length );
     smtc_beacon_metadata_t beacon_metadata;
     lorawan_api_beacon_get_metadata( &beacon_metadata );
 

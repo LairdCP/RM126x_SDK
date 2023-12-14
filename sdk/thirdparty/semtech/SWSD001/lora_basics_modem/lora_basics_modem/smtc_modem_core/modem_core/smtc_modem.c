@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -142,8 +143,10 @@
 
 #if !defined( LR1110_MODEM_E )
 static uint8_t   modem_buffer[242];
+#if defined( ADD_SMTC_FILE_UPLOAD )
 static uint32_t* upload_pdata;
 static uint32_t  upload_size;
+#endif
 
 static radio_planner_t modem_radio_planner;
 
@@ -216,7 +219,9 @@ struct
  * -----------------------------------------------------------------------------
  * --- PRIVATE FUNCTIONS DECLARATION -------------------------------------------
  */
+#if defined( ADD_SMTC_STREAM )
 static bool modem_port_reserved( uint8_t f_port );
+#endif
 
 static smtc_modem_return_code_t smtc_modem_get_dm_status_with_rate( uint8_t* dm_fields_payload,
                                                                     uint8_t* dm_field_length, dm_info_rate_t rate );
@@ -1760,8 +1765,8 @@ smtc_modem_return_code_t smtc_modem_file_upload_init( uint8_t stack_id, uint8_t 
                                                       const uint8_t* file, uint16_t file_length,
                                                       uint32_t average_delay_s )
 {
-#if defined( ADD_SMTC_FILE_UPLOAD )
     UNUSED( stack_id );
+#if defined( ADD_SMTC_FILE_UPLOAD )
     RETURN_BUSY_IF_TEST_MODE( );
 
     if( file_length == 0 )
@@ -1806,14 +1811,19 @@ smtc_modem_return_code_t smtc_modem_file_upload_init( uint8_t stack_id, uint8_t 
 
     return SMTC_MODEM_RC_OK;
 #else   // ADD_SMTC_FILE_UPLOAD
+    UNUSED( index );
+    UNUSED( cipher_mode );
+    UNUSED( file );
+    UNUSED( file_length );
+    UNUSED( average_delay_s );
     return SMTC_MODEM_RC_FAIL;
 #endif  // ADD_SMTC_FILE_UPLOAD
 }
 
 smtc_modem_return_code_t smtc_modem_file_upload_start( uint8_t stack_id )
 {
-#if defined( ADD_SMTC_FILE_UPLOAD )
     UNUSED( stack_id );
+#if defined( ADD_SMTC_FILE_UPLOAD )
     RETURN_BUSY_IF_TEST_MODE( );
 
     if( is_modem_connected( ) == false )
@@ -1849,8 +1859,8 @@ smtc_modem_return_code_t smtc_modem_file_upload_start( uint8_t stack_id )
 
 smtc_modem_return_code_t smtc_modem_file_upload_reset( uint8_t stack_id )
 {
-#if defined( ADD_SMTC_FILE_UPLOAD )
     UNUSED( stack_id );
+#if defined( ADD_SMTC_FILE_UPLOAD )
     RETURN_BUSY_IF_TEST_MODE( );
 
     if( ( modem_get_upload_state( ) == MODEM_UPLOAD_NOT_INIT ) ||
@@ -1875,8 +1885,8 @@ smtc_modem_return_code_t smtc_modem_stream_init( uint8_t stack_id, uint8_t fport
                                                  smtc_modem_stream_cipher_mode_t cipher_mode,
                                                  uint8_t                         redundancy_ratio_percent )
 {
-#if defined( ADD_SMTC_STREAM )
     UNUSED( stack_id );
+#if defined( ADD_SMTC_STREAM )
     RETURN_BUSY_IF_TEST_MODE( );
 
     // Check parameters validity
@@ -1927,14 +1937,17 @@ smtc_modem_return_code_t smtc_modem_stream_init( uint8_t stack_id, uint8_t fport
 
     return SMTC_MODEM_RC_OK;
 #else   // ADD_SMTC_STREAM
+    UNUSED( fport );
+    UNUSED( cipher_mode );
+    UNUSED( redundancy_ratio_percent );
     return SMTC_MODEM_RC_FAIL;
 #endif  // ADD_SMTC_STREAM
 }
 
 smtc_modem_return_code_t smtc_modem_stream_add_data( uint8_t stack_id, const uint8_t* data, uint8_t len )
 {
-#if defined( ADD_SMTC_STREAM )
     UNUSED( stack_id );
+#if defined( ADD_SMTC_STREAM )
     RETURN_BUSY_IF_TEST_MODE( );
     RETURN_INVALID_IF_NULL( data );
 
@@ -1987,14 +2000,16 @@ smtc_modem_return_code_t smtc_modem_stream_add_data( uint8_t stack_id, const uin
     SMTC_MODEM_HAL_TRACE_INFO( "STREAM_SEND [OK]\n" );
     return SMTC_MODEM_RC_OK;
 #else   // ADD_SMTC_STREAM
+    UNUSED( data );
+    UNUSED( len );
     return SMTC_MODEM_RC_FAIL;
 #endif  // ADD_SMTC_STREAM
 }
 
 smtc_modem_return_code_t smtc_modem_stream_status( uint8_t stack_id, uint16_t* pending, uint16_t* free )
 {
-#if defined( ADD_SMTC_STREAM )
     UNUSED( stack_id );
+#if defined( ADD_SMTC_STREAM )
     RETURN_BUSY_IF_TEST_MODE( );
     RETURN_INVALID_IF_NULL( pending );
     RETURN_INVALID_IF_NULL( free );
@@ -2007,6 +2022,8 @@ smtc_modem_return_code_t smtc_modem_stream_status( uint8_t stack_id, uint16_t* p
     stream_status( &( smtc_modem_services_ctx.stream_ROSE_ctx ), pending, free );
     return SMTC_MODEM_RC_OK;
 #else   // ADD_SMTC_STREAM
+    UNUSED( pending );
+    UNUSED( free );
     return SMTC_MODEM_RC_FAIL;
 #endif  // ADD_SMTC_STREAM
 }
@@ -2481,8 +2498,8 @@ smtc_modem_return_code_t smtc_modem_d2d_class_b_request_uplink( uint8_t stack_id
                                                                 uint8_t fport, const uint8_t* payload,
                                                                 uint8_t payload_length )
 {
-#if defined( SMTC_MULTICAST ) && defined( SMTC_D2D )
     UNUSED( stack_id );
+#if defined( SMTC_MULTICAST ) && defined( SMTC_D2D )
     RETURN_BUSY_IF_TEST_MODE( );
 
     if( ( fport == 0 ) || ( fport >= 224 ) || ( fport == get_modem_dm_port( ) ) )
@@ -2520,6 +2537,11 @@ smtc_modem_return_code_t smtc_modem_d2d_class_b_request_uplink( uint8_t stack_id
     }
     return modem_rc;
 #else   // SMTC_MULTICAST && SMTC_D2D
+    UNUSED( mc_grp_id );
+    UNUSED( d2d_config );
+    UNUSED( fport );
+    UNUSED( payload );
+    UNUSED( payload_length );
     return SMTC_MODEM_RC_FAIL;
 #endif  // SMTC_MULTICAST && SMTC_D2D
 }
@@ -2527,10 +2549,10 @@ smtc_modem_return_code_t smtc_modem_d2d_class_b_request_uplink( uint8_t stack_id
 smtc_modem_return_code_t smtc_modem_d2d_class_b_get_tx_max_payload( uint8_t stack_id, smtc_modem_mc_grp_id_t mc_grp_id,
                                                                     uint8_t* tx_max_payload_size )
 {
+    UNUSED( stack_id );
 #if defined( SMTC_MULTICAST ) && defined( SMTC_D2D )
     *tx_max_payload_size = 0;
 
-    UNUSED( stack_id );
     RETURN_BUSY_IF_TEST_MODE( );
     RETURN_INVALID_IF_NULL( tx_max_payload_size );
 
@@ -2560,6 +2582,8 @@ smtc_modem_return_code_t smtc_modem_d2d_class_b_get_tx_max_payload( uint8_t stac
     }
     return modem_rc;
 #else   // SMTC_MULTICAST && SMTC_D2D
+    UNUSED( mc_grp_id );
+    UNUSED( tx_max_payload_size );
     return SMTC_MODEM_RC_FAIL;
 #endif  // SMTC_MULTICAST && SMTC_D2D
 }
@@ -2641,6 +2665,7 @@ smtc_modem_return_code_t smtc_modem_get_pin( uint8_t stack_id, uint8_t chip_pin[
     }
     return SMTC_MODEM_RC_OK;
 #else
+    UNUSED( chip_pin );
     return SMTC_MODEM_RC_FAIL;
 #endif
 }
@@ -2668,6 +2693,7 @@ smtc_modem_return_code_t smtc_modem_get_chip_eui( uint8_t stack_id, uint8_t chip
     }
     return SMTC_MODEM_RC_OK;
 #else
+    UNUSED( chip_eui );
     return SMTC_MODEM_RC_FAIL;
 #endif
 }
@@ -2890,11 +2916,12 @@ smtc_modem_return_code_t smtc_modem_get_output_power_lut( uint8_t config[30] )
  * -----------------------------------------------------------------------------
  * --- PRIVATE FUNCTIONS DEFINITION --------------------------------------------
  */
-
+#if defined( ADD_SMTC_STREAM )
 static bool modem_port_reserved( uint8_t f_port )
 {
     return ( f_port >= 224 );
 }
+#endif
 
 static smtc_modem_return_code_t smtc_modem_get_dm_status_with_rate( uint8_t* dm_fields_payload,
                                                                     uint8_t* dm_field_length, dm_info_rate_t rate )
@@ -3125,6 +3152,7 @@ smtc_modem_rp_radio_status_t convert_rp_to_user_radio_access_rp_status( rp_statu
 
 void empty_callback( void* ctx )
 {
+    UNUSED( ctx );
 }
 
 void user_radio_access_callback( void* ctx )

@@ -2953,6 +2953,8 @@ uint8_t smtc_real_get_preamble_len( const lr1_stack_mac_t* lr1_mac, uint8_t sf )
         }
         break;
     }
+#else
+    UNUSED( sf );
 #endif
     default:
         return 8;
@@ -3577,6 +3579,8 @@ int8_t smtc_real_clamp_output_power_eirp_vs_freq_and_dr( lr1_stack_mac_t* lr1_ma
     defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || \
     defined( REGION_RM126X_UK_868 )
     {
+        UNUSED( tx_frequency );
+        UNUSED( datarate );
         return tx_power;
         break;
     }
@@ -3590,6 +3594,7 @@ int8_t smtc_real_clamp_output_power_eirp_vs_freq_and_dr( lr1_stack_mac_t* lr1_ma
 #endif
 #if defined( REGION_US_915 ) || defined( REGION_RM126X_US_915 )
     {
+        UNUSED( tx_frequency );
         if( datarate == DR4 )
         {
             return MIN( tx_power, 26 );
@@ -3865,6 +3870,7 @@ uint32_t smtc_real_get_beacon_frequency( lr1_stack_mac_t* lr1_mac, uint32_t gps_
     defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || defined( REGION_RM126X_NZ_AS_923 ) || \
     defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
+        UNUSED( gps_time_s );
         return const_beacon_frequency;
         break;
     }
@@ -3966,6 +3972,8 @@ uint32_t smtc_real_get_ping_slot_frequency( lr1_stack_mac_t* lr1_mac, uint32_t g
     defined( REGION_RM126X_EU_868 ) || defined( REGION_RM126X_IN_865 ) || defined( REGION_RM126X_JP_AS_923 ) || \
     defined( REGION_RM126X_NZ_AS_923 ) || defined( REGION_RM126X_TW_AS_923 ) || defined( REGION_RM126X_UK_868 )
     {
+        UNUSED( gps_time_s );
+        UNUSED( dev_addr );
         return const_ping_slot_frequency;
         break;
     }

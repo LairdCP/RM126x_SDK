@@ -903,6 +903,8 @@ void get_modem_gnss_status( uint8_t* gnss_status )
     almanac_update_create_uplink_payload( modem_radio_ctx, buffer_response );
     // Discard first byte as it is already handle by the dm uplink process in modem_context
     memcpy( gnss_status, &buffer_response[1], ALM_UPDATE_UPLINK_PAYLOAD_LENGTH - 1 );
+#else
+    UNUSED( gnss_status );
 #endif
 }
 
@@ -1878,6 +1880,7 @@ void modem_context_set_modem_rp( radio_planner_t* rp )
 
 void modem_context_empty_callback( void* ctx )
 {
+    UNUSED( ctx );
     // SMTC_MODEM_HAL_TRACE_ERROR( " empty call back \n" );
 }
 

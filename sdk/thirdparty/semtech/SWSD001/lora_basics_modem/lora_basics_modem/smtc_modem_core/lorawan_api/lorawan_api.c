@@ -985,6 +985,15 @@ smtc_class_b_d2d_status_t lorawan_api_class_b_d2d_request_tx( rx_session_type_t 
     return smtc_class_b_d2d_request_tx( &class_b_d2d_obj, multi_cast_group_id, fport, priority, payload, payload_size,
                                         nb_rep, nb_ping_slot_tries, ping_slots_mask, ping_slots_mask_size );
 #else
+    UNUSED( multi_cast_group_id );
+    UNUSED( fport );
+    UNUSED( priority );
+    UNUSED( payload );
+    UNUSED( payload_size );
+    UNUSED( nb_rep );
+    UNUSED( nb_ping_slot_tries );
+    UNUSED( ping_slots_mask );
+    UNUSED( ping_slots_mask_size );
     return SMTC_CLASS_B_D2D_ERROR;
 #endif
 }
@@ -994,6 +1003,7 @@ uint8_t lorawan_api_class_b_d2d_next_max_payload_length_get( rx_session_type_t m
 #if defined( SMTC_D2D )
     return smtc_class_b_d2d_next_max_payload_length_get( &class_b_d2d_obj, multi_cast_group_id );
 #else
+    UNUSED( multi_cast_group_id );
     return 0;
 #endif
 }
