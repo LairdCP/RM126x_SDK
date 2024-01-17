@@ -5,7 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
- * Copyright Laird Connectivity 2023. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -494,6 +494,9 @@ smtc_se_return_code_t smtc_secure_element_process_join_accept( smtc_se_join_req_
                                                                uint8_t enc_join_accept_size, uint8_t* dec_join_accept,
                                                                uint8_t* version_minor )
 {
+    UNUSED( joineui );
+    UNUSED( dev_nonce );
+
     if( ( enc_join_accept == NULL ) || ( dec_join_accept == NULL ) || ( version_minor == NULL ) )
     {
         return SMTC_SE_RC_ERROR_NPE;
@@ -606,7 +609,7 @@ smtc_se_return_code_t smtc_secure_element_set_pin( const uint8_t pin[SMTC_SE_PIN
     return SMTC_SE_RC_SUCCESS;
 }
 
-smtc_se_return_code_t smtc_secure_element_get_pin( uint8_t pin[SMTC_SE_PIN_SIZE] )
+smtc_se_return_code_t smtc_secure_element_get_pin( uint8_t *pin )
 {
     if( pin == NULL )
     {

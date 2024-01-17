@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -40,6 +41,7 @@
 #include "lr_fhss_mac.h"
 #include "sx126x_lr_fhss.h"
 #include "sx126x_hal.h"
+#include "smtc_modem_hal.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -135,6 +137,8 @@ static inline unsigned int sx126x_lr_fhss_get_grid_in_pll_steps( const sx126x_lr
 
 sx126x_status_t sx126x_lr_fhss_init( const void* context, const sx126x_lr_fhss_params_t* params )
 {
+    UNUSED( params );
+
     const uint8_t pkt_params_buf[] = {
         SX126X_SET_PKT_PARAMS, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     };
@@ -358,6 +362,9 @@ sx126x_status_t sx126x_lr_fhss_handle_hop( const void* context, const sx126x_lr_
 sx126x_status_t sx126x_lr_fhss_handle_tx_done( const void* context, const sx126x_lr_fhss_params_t* params,
                                                sx126x_lr_fhss_state_t* state )
 {
+    UNUSED( params );
+    UNUSED( state );
+
     const uint8_t ctrl = SX126X_LR_FHSS_DISABLE_HOPPING;
 
     return sx126x_write_register( context, SX126X_LR_FHSS_REG_CTRL, &ctrl, 1 );
