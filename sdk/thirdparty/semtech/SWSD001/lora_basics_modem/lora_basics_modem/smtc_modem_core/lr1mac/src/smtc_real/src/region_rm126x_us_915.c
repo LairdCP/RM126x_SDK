@@ -779,6 +779,8 @@ uint32_t region_rm126x_us_915_get_rx_beacon_frequency_channel( lr1_stack_mac_t* 
 uint32_t region_rm126x_us_915_get_rx_ping_slot_frequency_channel( lr1_stack_mac_t* lr1_mac, uint32_t gps_time_s,
                                                            uint32_t dev_addr )
 {
+    UNUSED( lr1_mac );
+
     uint8_t index = ( dev_addr + ( uint32_t )( floorf( gps_time_s / 128 ) ) ) % 8;
     return ( PING_SLOT_FREQ_START_RM126X_US_915 + ( index * PING_SLOT_STEP_RM126X_US_915 ) );
 }

@@ -5,7 +5,7 @@
  *
  * Revised BSD License
  * Copyright Semtech Corporation 2020. All rights reserved.
- * Copyright Laird Connectivity 2023. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -322,7 +322,7 @@ smtc_se_return_code_t smtc_secure_element_set_pin( const uint8_t pin[SMTC_SE_PIN
  * @param [out] pin The current pin code
  * @return Secure element return code as defined in @ref smtc_se_return_code_t
  */
-smtc_se_return_code_t smtc_secure_element_get_pin( uint8_t pin[SMTC_SE_PIN_SIZE] );
+smtc_se_return_code_t smtc_secure_element_get_pin( uint8_t *pin );
 
 /**
  * @brief Store the current secure element context into NVM

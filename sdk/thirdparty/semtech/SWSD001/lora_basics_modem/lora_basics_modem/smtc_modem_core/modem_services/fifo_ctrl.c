@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -97,6 +98,7 @@ void fifo_ctrl_clear( fifo_ctrl_t* ctrl )
 
 void fifo_ctrl_print_stat( const fifo_ctrl_t* ctrl )
 {
+    #if ( MODEM_HAL_DEEP_DBG_TRACE == MODEM_HAL_FEATURE_ON )
     SMTC_MODEM_HAL_TRACE_INFO_DEBUG( "----------------------------------\n" );
     SMTC_MODEM_HAL_TRACE_INFO_DEBUG( "fifo_ctrl_print_stat\n" );
     SMTC_MODEM_HAL_TRACE_INFO_DEBUG( "Buffer size : %d\n", ctrl->buffer_size );
@@ -106,6 +108,9 @@ void fifo_ctrl_print_stat( const fifo_ctrl_t* ctrl )
     SMTC_MODEM_HAL_TRACE_INFO_DEBUG( "Read        : %d\n", ctrl->read_cnt - ctrl->drop_cnt );
     SMTC_MODEM_HAL_TRACE_INFO_DEBUG( "Drop        : %d\n", ctrl->drop_cnt );
     SMTC_MODEM_HAL_TRACE_INFO_DEBUG( "----------------------------------\n" );
+    #else
+    UNUSED( ctrl );
+    #endif
 }
 
 uint16_t fifo_ctrl_get_nb_elt( const fifo_ctrl_t* ctrl )

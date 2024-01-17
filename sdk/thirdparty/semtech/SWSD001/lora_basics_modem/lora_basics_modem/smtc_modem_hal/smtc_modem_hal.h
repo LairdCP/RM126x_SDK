@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -266,7 +267,7 @@ void smtc_modem_hal_context_store( const modem_context_type_t ctx_type, const ui
  *
  * @param [in] crashlog   Buffer of 32 bytes containing crashlog data to store
  */
-void smtc_modem_hal_store_crashlog( uint8_t crashlog[CRASH_LOG_SIZE] );
+void smtc_modem_hal_store_crashlog( uint8_t *crashlog );
 
 /**
  * @brief Restores the crashlog
