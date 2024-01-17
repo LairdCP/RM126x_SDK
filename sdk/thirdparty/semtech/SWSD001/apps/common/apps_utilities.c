@@ -6,6 +6,7 @@
  * @copyright
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -154,6 +155,20 @@ void modem_region_to_string( smtc_modem_region_t region )
     case SMTC_MODEM_REGION_KR_920:
     case SMTC_MODEM_REGION_RU_864:
     case SMTC_MODEM_REGION_CN_470_RP_1_0:
+    #ifdef MODULE_VARIANT_RM1261
+    case SMTC_MODEM_REGION_RM126X_EU_868:
+    case SMTC_MODEM_REGION_RM126X_IN_865:
+    case SMTC_MODEM_REGION_RM126X_JP_AS_923:
+    case SMTC_MODEM_REGION_RM126X_TW_AS_923:
+    case SMTC_MODEM_REGION_RM126X_UK_868:
+    #endif
+    #ifdef MODULE_VARIANT_RM1262
+    case SMTC_MODEM_REGION_RM126X_AU_915:
+    case SMTC_MODEM_REGION_RM126X_AU_AS_923:
+    case SMTC_MODEM_REGION_RM126X_NZ_915:
+    case SMTC_MODEM_REGION_RM126X_NZ_AS_923:
+    case SMTC_MODEM_REGION_RM126X_US_915:
+    #endif
     {
         HAL_DBG_TRACE_PRINTF( "Region: %s\n\n", smtc_modem_region_to_str( region ) );
         break;

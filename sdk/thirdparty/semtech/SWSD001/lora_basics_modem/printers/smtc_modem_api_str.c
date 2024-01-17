@@ -6,6 +6,7 @@
  * @copyright
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -296,6 +297,60 @@ const char *smtc_modem_region_to_str(const smtc_modem_region_t value)
     {
       return (const char *) "SMTC_MODEM_REGION_CN_470_RP_1_0";
     }
+
+    #ifdef MODULE_VARIANT_RM1261
+    case SMTC_MODEM_REGION_RM126X_EU_868:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1261_EU_868";
+    }
+
+    case SMTC_MODEM_REGION_RM126X_IN_865:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1261_IN_865";
+    }
+
+    case SMTC_MODEM_REGION_RM126X_JP_AS_923:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1261_JP_AS_923";
+    }
+
+    case SMTC_MODEM_REGION_RM126X_TW_AS_923:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1261_TW_AS_923";
+    }
+
+    case SMTC_MODEM_REGION_RM126X_UK_868:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1261_UK_868";
+    }
+    #endif
+
+    #ifdef MODULE_VARIANT_RM1262
+    case SMTC_MODEM_REGION_RM126X_AU_915:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1262_AU_915";
+    }
+
+    case SMTC_MODEM_REGION_RM126X_AU_AS_923:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1262_AU_AS_923";
+    }
+
+    case SMTC_MODEM_REGION_RM126X_NZ_915:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1262_NZ_915";
+    }
+
+    case SMTC_MODEM_REGION_RM126X_NZ_AS_923:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1262_NZ_AS_923";
+    }
+
+    case SMTC_MODEM_REGION_RM126X_US_915:
+    {
+      return (const char *) "SMTC_MODEM_REGION_RM1262_US_915";
+    }
+    #endif
 
     default:
     {
