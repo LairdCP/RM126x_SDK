@@ -5,7 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
- * Copyright Laird Connectivity 2023. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -51,7 +51,7 @@
  * -----------------------------------------------------------------------------
  * --- PRIVATE MACROS-----------------------------------------------------------
  */
-
+#define NUM_CH_IN_SUB_BAND  8
 #define real_ctx lr1_mac->real->real_ctx
 
 #define dr_bitfield_tx_channel lr1_mac->real->region.rm126x_au915.dr_bitfield_tx_channel
@@ -165,28 +165,68 @@ void region_rm126x_au_915_config( lr1_stack_mac_t* lr1_mac )
 
 void region_rm126x_au_915_init( lr1_stack_mac_t* lr1_mac )
 {
-    // Tx 125 kHz channels
-    for( uint8_t i = 0; i < NUMBER_OF_TX_CHANNEL_RM126X_AU_915 - 8; i++ )
+    // If no sub-band is enabled all 64 + 8 channels need to be enabled
+    if ( !lr1_mac->sub_band )
     {
-        SMTC_PUT_BIT8( channel_index_enabled, i, CHANNEL_ENABLED );
+        // Tx 125 kHz channels
+        for( uint8_t i = 0; i < NUMBER_OF_TX_CHANNEL_RM126X_AU_915 - 8; i++ )
+        {
+            SMTC_PUT_BIT8( channel_index_enabled, i, CHANNEL_ENABLED );
 
-        // Enable default datarate
-        dr_bitfield_tx_channel[i] = DEFAULT_TX_DR_125_BIT_FIELD_RM126X_AU_915;
+            // Enable default datarate
+            dr_bitfield_tx_channel[i] = DEFAULT_TX_DR_125_BIT_FIELD_RM126X_AU_915;
 
-        SMTC_MODEM_HAL_TRACE_PRINTF( "TX - idx:%u, freq: %d, dr: 0x%x,\n%s", i,
-                                     region_rm126x_au_915_get_tx_frequency_channel( lr1_mac, i ), dr_bitfield_tx_channel[i],
-                                     ( ( i % 8 ) == 7 ) ? "---\n" : "" );
+            SMTC_MODEM_HAL_TRACE_PRINTF( "TX - idx:%u, freq: %d, dr: 0x%x,\n%s", i,
+                                         region_rm126x_au_915_get_tx_frequency_channel( lr1_mac, i ), dr_bitfield_tx_channel[i],
+                                         ( ( i % 8 ) == 7 ) ? "---\n" : "" );
+        }
+        // Tx 500 kHz channels
+        for( uint8_t i = NUMBER_OF_TX_CHANNEL_RM126X_AU_915 - 8; i < NUMBER_OF_TX_CHANNEL_RM126X_AU_915; i++ )
+        {
+            SMTC_PUT_BIT8( channel_index_enabled, i, CHANNEL_ENABLED );
+            // Enable default datarate
+            dr_bitfield_tx_channel[i] = DEFAULT_TX_DR_500_BIT_FIELD_RM126X_AU_915;
+
+            SMTC_MODEM_HAL_TRACE_PRINTF( "TX - idx:%u, freq: %d, dr: 0x%x,\n%s", i,
+                                         region_rm126x_au_915_get_tx_frequency_channel( lr1_mac, i ), dr_bitfield_tx_channel[i],
+                                         ( ( i % 8 ) == 7 ) ? "---\n" : "" );
+        }
     }
-    // Tx 500 kHz channels
-    for( uint8_t i = NUMBER_OF_TX_CHANNEL_RM126X_AU_915 - 8; i < NUMBER_OF_TX_CHANNEL_RM126X_AU_915; i++ )
+    else
     {
-        SMTC_PUT_BIT8( channel_index_enabled, i, CHANNEL_ENABLED );
-        // Enable default datarate
-        dr_bitfield_tx_channel[i] = DEFAULT_TX_DR_500_BIT_FIELD_RM126X_AU_915;
+        // Offset the sub-band by 1 here to account for its starting at 1
+        uint8_t sub_band = (lr1_mac->sub_band - 1);
 
-        SMTC_MODEM_HAL_TRACE_PRINTF( "TX - idx:%u, freq: %d, dr: 0x%x,\n%s", i,
-                                     region_rm126x_au_915_get_tx_frequency_channel( lr1_mac, i ), dr_bitfield_tx_channel[i],
-                                     ( ( i % 8 ) == 7 ) ? "---\n" : "" );
+        // Tx 125 kHz channels
+        for( uint8_t i = 0; i < NUMBER_OF_TX_CHANNEL_RM126X_AU_915 - 8; i++ )
+        {
+            if ( (i / NUM_CH_IN_SUB_BAND) == sub_band )
+            {
+                SMTC_PUT_BIT8( channel_index_enabled, i, CHANNEL_ENABLED );
+
+                // Enable default datarate
+                dr_bitfield_tx_channel[i] = DEFAULT_TX_DR_125_BIT_FIELD_RM126X_AU_915;
+
+                SMTC_MODEM_HAL_TRACE_PRINTF( "TX - idx:%u, freq: %d, dr: 0x%x,\n%s", i,
+                                             region_rm126x_au_915_get_tx_frequency_channel( lr1_mac, i ), dr_bitfield_tx_channel[i],
+                                             ( ( i % 8 ) == 7 ) ? "---\n" : "" );
+            }
+        }
+        // Tx 500 kHz channels
+        for( uint8_t i = NUMBER_OF_TX_CHANNEL_RM126X_AU_915 - 8; i < NUMBER_OF_TX_CHANNEL_RM126X_AU_915; i++ )
+        {
+            // Only one 500kHz channel is allowed per sub-band
+            if ( (i - (NUMBER_OF_TX_CHANNEL_RM126X_US_915 - 8)) == sub_band )
+            {
+                SMTC_PUT_BIT8( channel_index_enabled, i, CHANNEL_ENABLED );
+                // Enable default datarate
+                dr_bitfield_tx_channel[i] = DEFAULT_TX_DR_500_BIT_FIELD_RM126X_AU_915;
+
+                SMTC_MODEM_HAL_TRACE_PRINTF( "TX - idx:%u, freq: %d, dr: 0x%x,\n%s", i,
+                                             region_rm126x_au_915_get_tx_frequency_channel( lr1_mac, i ), dr_bitfield_tx_channel[i],
+                                             ( ( i % 8 ) == 7 ) ? "---\n" : "" );
+            }
+        }
     }
 #if MODEM_HAL_DBG_TRACE == MODEM_HAL_FEATURE_ON
     // Rx 500 kHz channels
@@ -471,7 +511,24 @@ void region_rm126x_au_915_set_channel_mask( lr1_stack_mac_t* lr1_mac )
 
 void region_rm126x_au_915_init_join_snapshot_channel_mask( lr1_stack_mac_t* lr1_mac )
 {
-    memset1( snapshot_channel_tx_mask, 0xFF, BANK_MAX_RM126X_AU915 );
+    // If no sub-band is set enable all channels . . .
+    if ( !lr1_mac->sub_band )
+    {
+        memset1( snapshot_channel_tx_mask, 0xFF, BANK_MAX_RM126X_AU915 );
+    }
+    else
+    {
+        uint8_t sub_band = (lr1_mac->sub_band - 1);
+
+        // Enable all channels in the selected sub-band only. First ensure all are
+        // disabled.
+        //
+        memset1( snapshot_channel_tx_mask, 0x0, BANK_MAX_RM126X_AU915 );
+        // Enable 125kHz channels . . . */
+        snapshot_channel_tx_mask[sub_band] = 0xFF;
+        // And the single 500kHz channel . . . */
+        snapshot_channel_tx_mask[BANK_8_500_RM126X_AU915] |= (0x1 << sub_band);
+    }
     snapshot_bank_tx_mask = 0;
 }
 

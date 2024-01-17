@@ -5,7 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
- * Copyright Laird Connectivity 2023. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -48,6 +48,7 @@
 #include "smtc_real_defs_str.h"
 #include "smtc_lbt.h"
 #include "lr1mac_config.h"
+#include "smtc_modem_api.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -115,6 +116,7 @@ void lr1mac_core_init( lr1_stack_mac_t* lr1_mac_obj, smtc_real_t* real, smtc_lbt
     lr1_mac_obj->push_context                = push_context;
     lr1_mac_obj->crystal_error               = BSP_CRYSTAL_ERROR;
     lr1_mac_obj->device_time_invalid_delay_s = LR1MAC_DEVICE_TIME_DELAY_TO_BE_NO_SYNC;
+    lr1_mac_obj->sub_band                    = LORAWAN_SUB_BAND;
     lr1_stack_mac_init( lr1_mac_obj, activation_mode, smtc_real_region_types );
 
     status_lorawan_t status = lr1mac_core_context_load( lr1_mac_obj );

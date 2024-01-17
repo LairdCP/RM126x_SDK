@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -232,6 +233,10 @@ typedef struct lr1_stack_mac_s
 
     // Downlink Network
     bool push_network_downlink_to_user;
+
+    // Sub-band
+    // For 915 regions only, selects the frequency sub-band to use
+    uint8_t sub_band;
 } lr1_stack_mac_t;
 
 /*
