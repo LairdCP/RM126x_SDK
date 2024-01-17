@@ -5,7 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
- * Copyright Laird Connectivity 2023. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -102,34 +102,34 @@ static const char* smtc_real_region_list_str[] = {
 #endif
 #endif
 #if defined( REGION_RM126X_AU_915 )
-    [SMTC_REAL_REGION_RM126X_AU_915] = "RM126X_AU_915",
+    [SMTC_REAL_REGION_RM126X_AU_915] = "RM1262_AU_915",
 #endif
 #if defined( REGION_RM126X_AU_AS_923 )
-    [SMTC_REAL_REGION_RM126X_AU_AS_923] = "RM126X_AU_AS923",
+    [SMTC_REAL_REGION_RM126X_AU_AS_923] = "RM1262_AU_AS923",
 #endif
 #if defined( REGION_RM126X_EU_868 )
-    [SMTC_REAL_REGION_RM126X_EU_868] = "RM126X_EU_868",
+    [SMTC_REAL_REGION_RM126X_EU_868] = "RM1261_EU_868",
 #endif
 #if defined( REGION_RM126X_IN_865 )
-    [SMTC_REAL_REGION_RM126X_IN_865] = "RM126X_IN_865",
+    [SMTC_REAL_REGION_RM126X_IN_865] = "RM1261_IN_865",
 #endif
 #if defined( REGION_RM126X_JP_AS_923 )
-    [SMTC_REAL_REGION_RM126X_JP_AS_923] = "RM126X_JP_AS923",
+    [SMTC_REAL_REGION_RM126X_JP_AS_923] = "RM1261_JP_AS923",
 #endif
 #if defined( REGION_RM126X_NZ_915 )
-    [SMTC_REAL_REGION_RM126X_NZ_915] = "RM126X_NZ_915",
+    [SMTC_REAL_REGION_RM126X_NZ_915] = "RM1262_NZ_915",
 #endif
 #if defined( REGION_RM126X_NZ_AS_923 )
-    [SMTC_REAL_REGION_RM126X_NZ_AS_923] = "RM126X_NZ_AS923",
+    [SMTC_REAL_REGION_RM126X_NZ_AS_923] = "RM1262_NZ_AS923",
 #endif
 #if defined( REGION_RM126X_TW_AS_923 )
-    [SMTC_REAL_REGION_RM126X_TW_AS_923] = "RM126X_TW_AS923",
+    [SMTC_REAL_REGION_RM126X_TW_AS_923] = "RM1261_TW_AS923",
 #endif
 #if defined( REGION_RM126X_UK_868 )
-    [SMTC_REAL_REGION_RM126X_UK_868] = "RM126X_UK_868",
+    [SMTC_REAL_REGION_RM126X_UK_868] = "RM1261_UK_868",
 #endif
 #if defined( REGION_RM126X_US_915 )
-    [SMTC_REAL_REGION_RM126X_US_915] = "RM126X_US_915"
+    [SMTC_REAL_REGION_RM126X_US_915] = "RM1262_US_915"
 #endif
 };
 
