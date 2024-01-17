@@ -6,6 +6,7 @@
  * @copyright
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -272,6 +273,12 @@ void apps_modem_common_configure_lorawan_params( uint8_t stack_id )
     }
 
     modem_region_to_string( LORAWAN_REGION );
+
+    rc = smtc_modem_set_network_type( stack_id, LORAWAN_NETWORK_TYPE );
+    if( rc != SMTC_MODEM_RC_OK )
+    {
+        HAL_DBG_TRACE_CRITICAL( "smtc_modem_set_network_type failed: rc=%s (%d)\n", smtc_modem_return_code_to_str( rc ), rc );
+    }
 
     /* adapt the tx power offet depending on the board */
     rc |= smtc_modem_set_tx_power_offset_db( stack_id, smtc_board_get_tx_power_offset( ) );
