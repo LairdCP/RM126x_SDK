@@ -5,7 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
- * Copyright Laird Connectivity 2023. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -48,6 +48,13 @@ extern "C" {
 #include <stdint.h>   // C99 types
 #include <stdbool.h>  // bool type
 
+#include "rm126x_config.h"
+#ifdef MODULE_VARIANT_RM1261
+#include "rm1261_config.h"
+#else
+#include "rm1262_config.h"
+#endif
+
 /*
  * -----------------------------------------------------------------------------
  * --- PUBLIC MACROS -----------------------------------------------------------
@@ -57,6 +64,64 @@ extern "C" {
  * -----------------------------------------------------------------------------
  * --- PUBLIC CONSTANTS --------------------------------------------------------
  */
+/**
+ * @brief Maps to externally defined Dev EUI
+ */
+#define LORAWAN_DEVICE_EUI { ( RM126X_DEV_EUI_BYTES_7_TO_4 >> 24 & 0xFF ), \
+                             ( RM126X_DEV_EUI_BYTES_7_TO_4 >> 16 & 0xFF ), \
+                             ( RM126X_DEV_EUI_BYTES_7_TO_4 >> 8 & 0xFF ),  \
+                             ( RM126X_DEV_EUI_BYTES_7_TO_4 & 0xFF ),       \
+                             ( RM126X_DEV_EUI_BYTES_3_TO_0 >> 24 & 0xFF ), \
+                             ( RM126X_DEV_EUI_BYTES_3_TO_0 >> 16 & 0xFF ), \
+                             ( RM126X_DEV_EUI_BYTES_3_TO_0 >> 8 & 0xFF ),  \
+                             ( RM126X_DEV_EUI_BYTES_3_TO_0 & 0xFF ) }
+
+/**
+ * @brief Maps to externally defined Join EUI
+ */
+#define LORAWAN_JOIN_EUI { ( RM126X_JOIN_EUI_BYTES_7_TO_4 >> 24 & 0xFF ), \
+                           ( RM126X_JOIN_EUI_BYTES_7_TO_4 >> 16 & 0xFF ), \
+                           ( RM126X_JOIN_EUI_BYTES_7_TO_4 >> 8 & 0xFF ),  \
+                           ( RM126X_JOIN_EUI_BYTES_7_TO_4 & 0xFF ),       \
+                           ( RM126X_JOIN_EUI_BYTES_3_TO_0 >> 24 & 0xFF ), \
+                           ( RM126X_JOIN_EUI_BYTES_3_TO_0 >> 16 & 0xFF ), \
+                           ( RM126X_JOIN_EUI_BYTES_3_TO_0 >> 8 & 0xFF ),  \
+                           ( RM126X_JOIN_EUI_BYTES_3_TO_0 & 0xFF ) }
+
+/**
+ * @brief Maps to externally defined App Key
+ */
+#define LORAWAN_APP_KEY { ( RM126X_APP_KEY_BYTES_15_TO_12 >> 24 & 0xFF ), \
+                          ( RM126X_APP_KEY_BYTES_15_TO_12 >> 16 & 0xFF ), \
+                          ( RM126X_APP_KEY_BYTES_15_TO_12 >> 8 & 0xFF ),  \
+                          ( RM126X_APP_KEY_BYTES_15_TO_12 & 0xFF ),       \
+                          ( RM126X_APP_KEY_BYTES_11_TO_8 >> 24 & 0xFF ), \
+                          ( RM126X_APP_KEY_BYTES_11_TO_8 >> 16 & 0xFF ), \
+                          ( RM126X_APP_KEY_BYTES_11_TO_8 >> 8 & 0xFF ),  \
+                          ( RM126X_APP_KEY_BYTES_11_TO_8 & 0xFF ),       \
+                          ( RM126X_APP_KEY_BYTES_7_TO_4 >> 24 & 0xFF ), \
+                          ( RM126X_APP_KEY_BYTES_7_TO_4 >> 16 & 0xFF ), \
+                          ( RM126X_APP_KEY_BYTES_7_TO_4 >> 8 & 0xFF ),  \
+                          ( RM126X_APP_KEY_BYTES_7_TO_4 & 0xFF ),       \
+                          ( RM126X_APP_KEY_BYTES_3_TO_0 >> 24 & 0xFF ), \
+                          ( RM126X_APP_KEY_BYTES_3_TO_0 >> 16 & 0xFF ), \
+                          ( RM126X_APP_KEY_BYTES_3_TO_0 >> 8 & 0xFF ),  \
+                          ( RM126X_APP_KEY_BYTES_3_TO_0 & 0xFF ) }
+
+/**
+ * @brief Maps to externally defined RM126x region
+ */
+#define LORAWAN_REGION RM126X_REGION
+
+/**
+ * @brief Defines public or private network type
+ */
+#define LORAWAN_NETWORK_TYPE RM126X_NETWORK_TYPE
+
+/**
+ * @brief Maps to externally defined sub-band
+ */
+#define LORAWAN_SUB_BAND RM126X_SUB_BAND
 
 /**
  * @brief EUI (joinEUI, devEUI, etc.) length in byte
