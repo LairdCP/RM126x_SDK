@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2022. All rights reserved.
+ * Copyright Laird Connectivity 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -53,42 +54,58 @@
 
 void smtc_shield_sx126x_init_led_tx( void )
 {
+    #if SMTC_LED_TX != NC
     hal_gpio_init_out( SMTC_LED_TX, HAL_GPIO_RESET );
+    #endif
 }
 
 void smtc_shield_sx126x_init_led_rx( void )
 {
+    #if SMTC_LED_RX != NC
     hal_gpio_init_out( SMTC_LED_RX, HAL_GPIO_RESET );
+    #endif
 }
 
 void smtc_shield_sx126x_deinit_led_tx( void )
 {
+    #if SMTC_LED_TX != NC
     hal_gpio_deinit( SMTC_LED_TX );
+    #endif
 }
 
 void smtc_shield_sx126x_deinit_led_rx( void )
 {
+    #if SMTC_LED_RX != NC
     hal_gpio_deinit( SMTC_LED_RX );
+    #endif
 }
 
 void smtc_shield_sx126x_set_led_tx( void )
 {
+    #if SMTC_LED_TX != NC
     hal_gpio_set_value( SMTC_LED_TX, HAL_GPIO_SET );
+    #endif
 }
 
 void smtc_shield_sx126x_reset_led_tx( void )
 {
+    #if SMTC_LED_TX != NC
     hal_gpio_set_value( SMTC_LED_TX, HAL_GPIO_RESET );
+    #endif
 }
 
 void smtc_shield_sx126x_set_led_rx( void )
 {
+    #if SMTC_LED_RX != NC
     hal_gpio_set_value( SMTC_LED_RX, HAL_GPIO_SET );
+    #endif
 }
 
 void smtc_shield_sx126x_reset_led_rx( void )
 {
+    #if SMTC_LED_RX != NC
     hal_gpio_set_value( SMTC_LED_RX, HAL_GPIO_RESET );
+    #endif
 }
 
 /*
