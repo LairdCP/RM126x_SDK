@@ -5,6 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
+ * Copyright Laird Connectivity 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -62,7 +63,10 @@ extern "C" {
 #ifndef HAL_DBG_TRACE
 #define HAL_DBG_TRACE HAL_FEATURE_ON
 #endif  // HAL_DBG_TRACE
+
+#ifndef HAL_DBG_TRACE_COLOR
 #define HAL_DBG_TRACE_COLOR HAL_FEATURE_ON
+#endif  // HAL_DBG_TRACE_COLOR
 
 /* HAL_FEATURE_ON to activate sleep mode */
 
