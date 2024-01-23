@@ -183,6 +183,7 @@ void apps_modem_common_configure_lorawan_params( uint8_t stack_id )
     smtc_modem_return_code_t rc                              = SMTC_MODEM_RC_OK;
     uint8_t                  dev_eui[LORAWAN_DEVICE_EUI_LEN] = LORAWAN_DEVICE_EUI;
     uint8_t                  join_eui[LORAWAN_JOIN_EUI_LEN]  = LORAWAN_JOIN_EUI;
+    smtc_modem_class_t       lorawan_class                   = LORAWAN_CLASS;
 
 #ifdef USER_DEFINED_JOIN_PARAMETERS
 
@@ -258,7 +259,16 @@ void apps_modem_common_configure_lorawan_params( uint8_t stack_id )
     }
 #endif
 
-    rc = smtc_modem_set_class( stack_id, LORAWAN_CLASS );
+    /* If Class B is required, defer switching over until we've joined and Class
+     * B setup is complete. Post join we go through set up for Class B in the On
+     * Join event handler.
+     */
+    if ( lorawan_class == SMTC_MODEM_CLASS_B )
+    {
+        lorawan_class = SMTC_MODEM_CLASS_A;
+    }
+
+    rc = smtc_modem_set_class( stack_id, lorawan_class );
     if( rc != SMTC_MODEM_RC_OK )
     {
         HAL_DBG_TRACE_CRITICAL( "smtc_modem_set_class failed: rc=%s (%d)\n", smtc_modem_return_code_to_str( rc ), rc );
