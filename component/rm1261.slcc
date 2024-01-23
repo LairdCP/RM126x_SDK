@@ -1,0 +1,49 @@
+id: rm1261
+package: rm126x_sdk
+label: RM1261
+description: >
+  Support files for the RM1261 module.
+category: LoRaWAN
+quality: evaluation
+root_path: sdk
+
+config_file:
+  - path: laird_connectivity/config/rm1261/rm1261_config.h
+
+include:
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src
+    file_list:
+      - path: region_rm126x_eu_868_defs.h
+      - path: region_rm126x_eu_868.h
+      - path: region_rm126x_in_865_defs.h
+      - path: region_rm126x_in_865.h
+      - path: region_rm126x_jp_as_923_defs.h
+      - path: region_rm126x_jp_as_923.h
+      - path: region_rm126x_tw_as_923_defs.h
+      - path: region_rm126x_tw_as_923.h
+      - path: region_rm126x_uk_868_defs.h
+      - path: region_rm126x_uk_868.h
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/smtc_shield_sx126x/SX1261MB1CAS/inc
+    file_list:
+      - path: smtc_shield_sx1261mb1cas.h
+source:
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_eu_868.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_in_865.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_jp_as_923.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_tw_as_923.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_uk_868.c
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/smtc_shield_sx126x/SX1261MB1CAS/src/smtc_shield_sx1261mb1cas.c
+
+################################################################################
+# Project build settings including are set here.
+################################################################################
+define:
+- name: REGION_RM126X_EU_868
+- name: REGION_RM126X_IN_865
+- name: REGION_RM126X_JP_AS_923
+- name: REGION_RM126X_TW_AS_923
+- name: REGION_RM126X_UK_868
+- name: MODULE_VARIANT_RM1261
+- name: SX1261
+- name: SEMTECH_RADIO_SX1261
+
