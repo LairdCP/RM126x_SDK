@@ -1,0 +1,48 @@
+id: rm1262
+package: rm126x_sdk
+label: RM1262
+description: >
+  Support files for the RM1262 module.
+category: LoRaWAN
+quality: evaluation
+root_path: sdk
+
+config_file:
+  - path: laird_connectivity/config/rm1262/rm1262_config.h
+
+include:
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src
+    file_list:
+      - path: region_rm126x_au_915_defs.h
+      - path: region_rm126x_au_915.h
+      - path: region_rm126x_au_as_923_defs.h
+      - path: region_rm126x_au_as_923.h
+      - path: region_rm126x_nz_915_defs.h
+      - path: region_rm126x_nz_915.h
+      - path: region_rm126x_nz_as_923_defs.h
+      - path: region_rm126x_nz_as_923.h
+      - path: region_rm126x_us_915_defs.h
+      - path: region_rm126x_us_915.h
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/smtc_shield_sx126x/SX1262MB1CBS/inc
+    file_list:
+      - path: smtc_shield_sx1262mb1cbs.h
+source:
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_au_915.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_au_as_923.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_nz_915.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_nz_as_923.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/region_rm126x_us_915.c
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/smtc_shield_sx126x/SX1262MB1CBS/src/smtc_shield_sx1262mb1cbs.c
+
+################################################################################
+# Project build settings including are set here.
+################################################################################
+define:
+- name: REGION_RM126X_AU_915
+- name: REGION_RM126X_AU_AS_923
+- name: REGION_RM126X_NZ_915
+- name: REGION_RM126X_NZ_AS_923
+- name: REGION_RM126X_US_915
+- name: MODULE_VARIANT_RM1262
+- name: SX1262
+- name: SEMTECH_RADIO_SX1262
