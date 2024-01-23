@@ -1,0 +1,10 @@
+﻿# Properties file for Simplicity Studio metadata
+id=uc.extension.rm126x_sdk
+
+version=1.0.0
+
+label=RM126x SDK
+description=SDK and sample applications for the Laird Connectivity RM126x LoRa module
+
+prop.file.templatesFile=templates.xml
+prop.subLabel=RM126x\\ SDK\\ \\ 1.0.0
