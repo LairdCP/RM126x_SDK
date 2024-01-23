@@ -1,0 +1,279 @@
+id: rm126x
+package: rm126x_sdk
+label: RM126x
+description: >
+  Common support files for the RM126x family of modules.
+category: LoRaWAN
+quality: evaluation
+root_path: sdk
+
+config_file:
+  - path: laird_connectivity/config/rm126x/rm126x_config.h
+
+include:
+  - path: laird_connectivity/inc
+    file_list:
+      - path: Attribute.h
+      - path: AttributeTable.h
+      - path: ticker.h
+      - path: string_conversion.h
+      - path: lc_common.h
+  - path: thirdparty/semtech/SWSD001/apps/common
+    file_list:
+      - path: apps_modem_common.h
+      - path: apps_modem_common_version.h
+      - path: apps_modem_event.h
+      - path: apps_utilities.h
+      - path: lorawan_key_config.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem
+    file_list:
+      - path: lora_basics_modem_version.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/printers
+    file_list:
+      - path: smtc_modem_api_str.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_api
+    file_list:
+      - path: smtc_basic_modem_lr11xx_api_extension.h
+      - path: smtc_modem_api.h
+      - path: smtc_modem_middleware_advanced_api.h
+      - path: smtc_modem_test_api.h
+      - path: smtc_modem_utilities.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_hal
+    file_list:
+      - path: smtc_modem_hal.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/device_management
+    file_list:
+      - path: device_management_defs.h
+      - path: dm_downlink.h
+      - path: modem_context.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lorawan_api
+    file_list:
+      - path: lorawan_api.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac
+    file_list:
+      - path: lr1mac_config.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src
+    file_list:
+      - path: lr1_stack_mac_layer.h
+      - path: lr1mac_core.h
+      - path: lr1mac_defs.h
+      - path: lr1mac_utilities.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/lr1mac_class_b
+    file_list:
+      - path: smtc_beacon_sniff.h
+      - path: smtc_ping_slot.h
+      - path: smtc_d2d.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/lr1mac_class_c
+    file_list:
+      - path: lr1mac_class_c.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/services
+    file_list:
+      - path: smtc_duty_cycle.h
+      - path: smtc_lbt.h
+      - path: smtc_multicast.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src
+    file_list:
+      - path: smtc_real_defs_str.h
+      - path: smtc_real_defs.h
+      - path: smtc_real.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_config
+    file_list:
+      - path: smtc_modem_hal_dbg_trace.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_services
+    file_list:
+      - path: fifo_ctrl.h
+      - path: lorawan_certification.h
+      - path: modem_utilities.h
+      - path: smtc_clock_sync.h
+      - path: smtc_modem_services_config.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_supervisor
+    file_list:
+      - path: modem_supervisor.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/radio_drivers/sx126x_driver/src
+    file_list:
+      - path: sx126x_hal.h
+      - path: sx126x_regs.h
+      - path: sx126x.h
+      - path: sx126x_lr_fhss.h
+      - path: lr_fhss_mac.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/radio_planner/src
+    file_list:
+      - path: radio_planner_hal.h
+      - path: radio_planner_hook_id_defs.h
+      - path: radio_planner_stats.h
+      - path: radio_planner_types.h
+      - path: radio_planner.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_crypto
+    file_list:
+      - path: smtc_modem_crypto.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_crypto/smtc_secure_element
+    file_list:
+      - path: smtc_secure_element.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_crypto/soft_secure_element
+    file_list:
+      - path: aes.h
+      - path: cmac.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_services
+    file_list:
+      - path: smtc_modem_services_hal.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_services/headers
+    file_list:
+      - path: alc_sync.h
+      - path: almanac_update.h
+      - path: file_upload.h
+      - path: stream.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_services/src
+    file_list:
+      - path: modem_services_common.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_services/src/file_upload
+    file_list:
+      - path: file_upload_defs.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_services/src/stream
+    file_list:
+      - path: rose.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_ral/src
+    file_list:
+      - path: lr_fhss_v1_base_types.h
+      - path: ral_defs.h
+      - path: ral_drv.h
+      - path: ral_sx126x_bsp.h
+      - path: ral_sx126x.h
+      - path: ral.h
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_ralf/src
+    file_list:
+      - path: ralf_defs.h
+      - path: ralf_drv.h
+      - path: ralf_sx126x_bsp.h
+      - path: ralf_sx126x.h
+      - path: ralf.h
+  - path: thirdparty/semtech/SWSD001/shields/interface
+    file_list:
+      - path: smtc_board_ralf.h
+      - path: smtc_board.h
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/radio_drivers_hal
+    file_list:
+      - path: sx126x_hal_context.h
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/smtc_shield_sx126x/common/inc
+    file_list:
+      - path: smtc_shield_sx126x_ant_sw_if.h
+      - path: smtc_shield_sx126x_common_if.h
+      - path: smtc_shield_sx126x_led_if.h
+  - path: thirdparty/semtech/SWSD001/smtc_hal/board
+    file_list:
+      - path: board_options.h
+  - path: thirdparty/semtech/SWSD001/smtc_hal/board/rm126x
+    file_list:
+      - path: rm126x_board_options.h
+      - path: rm126x_pinout_mapping.h
+  - path: thirdparty/semtech/SWSD001/smtc_hal/inc
+    file_list:
+      - path: smtc_hal_adc.h
+      - path: smtc_hal_dbg_trace.h
+      - path: smtc_hal_def.h
+      - path: smtc_hal_flash.h
+      - path: smtc_hal_gpio_pin_names.h
+      - path: smtc_hal_gpio.h
+      - path: smtc_hal_i2c.h
+      - path: smtc_hal_lp_timer.h
+      - path: smtc_hal_mcu.h
+      - path: smtc_hal_options.h
+      - path: smtc_hal_rng.h
+      - path: smtc_hal_rtc.h
+      - path: smtc_hal_spi.h
+      - path: smtc_hal_tmr.h
+      - path: smtc_hal_tmr_list.h
+      - path: smtc_hal_trace.h
+      - path: smtc_hal_uart.h
+      - path: smtc_hal_watchdog.h
+      - path: smtc_hal.h
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/inc
+    file_list:
+      - path: efr32bg22xx_hal.h
+      - path: modem_pinout.h
+      - path: smtc_hal_flash_mapping.h
+source:
+  - path: laird_connectivity/src/Attribute.c
+  - path: laird_connectivity/src/Attribute_Device_Id.c
+  - path: laird_connectivity/src/AttributeTable.c
+  - path: laird_connectivity/src/AttributeValidator.c
+  - path: laird_connectivity/src/string_conversion.c
+  - path: laird_connectivity/src/ticker.c
+  - path: thirdparty/semtech/SWSD001/apps/common/apps_modem_common.c
+  - path: thirdparty/semtech/SWSD001/apps/common/apps_modem_event.c
+  - path: thirdparty/semtech/SWSD001/apps/common/apps_utilities.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/printers/smtc_modem_api_str.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/device_management/dm_downlink.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/device_management/modem_context.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lorawan_api/lorawan_api.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/lr1_stack_mac_layer.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/lr1mac_core.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/lr1mac_utilities.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/lr1mac_class_b/smtc_beacon_sniff.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/lr1mac_class_b/smtc_ping_slot.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/lr1mac_class_c/lr1mac_class_c.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/services/smtc_duty_cycle.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/services/smtc_lbt.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/services/smtc_multicast.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src/smtc_real.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_core/smtc_modem.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_core/smtc_modem_test.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_services/fifo_ctrl.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_services/lorawan_certification.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_services/modem_utilities.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_services/smtc_clock_sync.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_services/smtc_modem_services_hal.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/modem_supervisor/modem_supervisor.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/radio_drivers/sx126x_driver/src/lr_fhss_mac.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/radio_drivers/sx126x_driver/src/sx126x.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/radio_drivers/sx126x_driver/src/sx126x_lr_fhss.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/radio_planner/src/radio_planner.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/radio_planner/src/radio_planner_hal.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_crypto/smtc_modem_crypto.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_crypto/soft_secure_element/aes.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_crypto/soft_secure_element/cmac.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_crypto/soft_secure_element/soft_se.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_services/src/alc_sync/alc_sync.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_services/src/almanac_update/almanac_update.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_modem_services/src/file_upload/file_upload.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_ral/src/ral_sx126x.c
+  - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/smtc_ralf/src/ralf_sx126x.c
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/common/src/ral_sx126x_bsp.c
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/common/src/smtc_board_sx126x.c
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/radio_drivers_hal/sx126x_hal.c
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/smtc_shield_sx126x/common/src/smtc_shield_sx126x_ant_sw.c
+  - path: thirdparty/semtech/SWSD001/shields/SX126X/smtc_shield_sx126x/common/src/smtc_shield_sx126x_led.c
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/smtc_modem_hal/smtc_modem_hal.c
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/src/smtc_hal_gpio.c
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/src/smtc_hal_lp_timer.c
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/src/smtc_hal_mcu.c
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/src/smtc_hal_rng.c
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/src/smtc_hal_rtc.c
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/src/smtc_hal_spi.c
+  - path: thirdparty/semtech/SWSD001/smtc_hal/Silabs/EFR32BG22x/src/smtc_hal_watchdog.c
+
+################################################################################
+# Project build settings including are set here.
+################################################################################
+define:
+- name: "ADD_SMTC_ALC_SYNC"
+  value: "1"
+- name: "EFR32BG22C224F512IM40"
+  value: "1"
+- name: "MODEM_HAL_DBG_TRACE_RP"
+  value: "MODEM_HAL_FEATURE_OFF"
+- name: "MODEM_HAL_DBG_TRACE_COLOR"
+  value: "MODEM_HAL_FEATURE_OFF"
+- name: "HAL_DBG_TRACE_COLOR"
+  value: "HAL_FEATURE_OFF"
+- name: "OPT_OSC_TYPE"
+  value: "0"
+- name: "RP2_103"
+  value: "1"
+- name: "SL_COMPONENT_CATALOG_PRESENT"
+  value: "1"
+- name: "SMTC_MULTICAST"
+  value: "1"
+- name: "SX126X"
+  value: "1"
+- name: "USER_DEFINED_JOIN_PARAMETERS"
+  value: "1"
