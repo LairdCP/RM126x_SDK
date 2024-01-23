@@ -5,7 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
- * Copyright Laird Connectivity 2023. All rights reserved.
+ * Copyright Laird Connectivity 2023-2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -2018,6 +2018,10 @@ status_lorawan_t smtc_real_is_tx_dr_acceptable( lr1_stack_mac_t* lr1_mac, uint8_
     case SMTC_REAL_REGION_RM126X_NZ_915:
         return region_rm126x_nz_915_is_acceptable_tx_dr( lr1_mac, dr, is_ch_mask_from_link_adr );
 #endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+        return region_rm126x_us_915_is_acceptable_tx_dr( lr1_mac, dr, is_ch_mask_from_link_adr );
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -2438,6 +2442,9 @@ status_lorawan_t smtc_real_set_rx1_frequency_channel( lr1_stack_mac_t* lr1_mac, 
 #if defined( REGION_RM126X_NZ_915 )
     case SMTC_REAL_REGION_RM126X_NZ_915:
 #endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
 #if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
     defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
@@ -2538,6 +2545,9 @@ void smtc_real_set_channel_dr( lr1_stack_mac_t* lr1_mac, uint8_t channel_index, 
 #if defined( REGION_RM126X_NZ_915 )
     case SMTC_REAL_REGION_RM126X_NZ_915:
 #endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
+#endif
 #if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
     defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
     {
@@ -2630,6 +2640,9 @@ void smtc_real_set_channel_enabled( lr1_stack_mac_t* lr1_mac, uint8_t enable, ui
 #endif
 #if defined( REGION_RM126X_NZ_915 )
     case SMTC_REAL_REGION_RM126X_NZ_915:
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915:
 #endif
 #if defined( REGION_CN_470 ) || defined( REGION_CN_470_RP_1_0 ) || defined( REGION_US_915 ) || defined( REGION_AU_915 ) || \
     defined( REGION_RM126X_AU_915 ) || defined( REGION_RM126X_NZ_915 ) || defined( REGION_RM126X_US_915 )
@@ -2736,6 +2749,12 @@ uint32_t smtc_real_get_tx_channel_frequency( lr1_stack_mac_t* lr1_mac, uint8_t c
 #if defined( REGION_RM126X_NZ_915 )
     case SMTC_REAL_REGION_RM126X_NZ_915: {
         return region_rm126x_nz_915_get_tx_frequency_channel( lr1_mac, channel_index );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        return region_rm126x_us_915_get_tx_frequency_channel( lr1_mac, channel_index );
         break;
     }
 #endif
@@ -3912,6 +3931,12 @@ uint32_t smtc_real_get_beacon_frequency( lr1_stack_mac_t* lr1_mac, uint32_t gps_
         break;
     }
 #endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        return region_rm126x_us_915_get_rx_beacon_frequency_channel( lr1_mac, gps_time_s );
+        break;
+    }
+#endif
     default:
         smtc_modem_hal_lr1mac_panic( );
         break;
@@ -4012,6 +4037,12 @@ uint32_t smtc_real_get_ping_slot_frequency( lr1_stack_mac_t* lr1_mac, uint32_t g
 #if defined( REGION_RM126X_NZ_915 )
     case SMTC_REAL_REGION_RM126X_NZ_915: {
         return region_rm126x_nz_915_get_rx_ping_slot_frequency_channel( lr1_mac, gps_time_s, dev_addr );
+        break;
+    }
+#endif
+#if defined( REGION_RM126X_US_915 )
+    case SMTC_REAL_REGION_RM126X_US_915: {
+        return region_rm126x_us_915_get_rx_ping_slot_frequency_channel( lr1_mac, gps_time_s, dev_addr );
         break;
     }
 #endif
