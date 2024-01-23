@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ASCII"?><model:MDescriptors xmlns:model="http://www.silabs.com/ss/Studio.ecore">
+  <descriptors name="rm1261_class_a" label="RM1261 - Class A"
+               description="This example project shows a Class A connection being established.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1261_class_a/rm1261_class_a.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/example/rm1261_class_a/README.md"/>
+    <properties key="boardCompatibility" value="brd2900a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+  <descriptors name="rm1262_class_a" label="RM1262 - Class A"
+               description="This example project shows a Class A connection being established.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1262_class_a/rm1262_class_a.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/example/rm1262_class_a/README.md"/>
+    <properties key="boardCompatibility" value="brd2901a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+  <descriptors name="rm1261_class_b" label="RM1261 - Class B"
+               description="This example project shows a Class B connection being established.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1261_class_b/rm1261_class_b.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/example/rm1261_class_b/README.md"/>
+    <properties key="boardCompatibility" value="brd2900a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+  <descriptors name="rm1262_class_b" label="RM1262 - Class B"
+               description="This example project shows a Class B connection being established.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1262_class_b/rm1262_class_b.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/example/rm1262_class_b/README.md"/>
+    <properties key="boardCompatibility" value="brd2901a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+  <descriptors name="rm1261_class_c" label="RM1261 - Class C"
+               description="This example project shows a Class C connection being established.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1261_class_c/rm1261_class_c.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/example/rm1261_class_c/README.md"/>
+    <properties key="boardCompatibility" value="brd2900a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+  <descriptors name="rm1262_class_c" label="RM1262 - Class C"
+               description="This example project shows a Class C connection being established.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1262_class_c/rm1262_class_c.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/example/rm1262_class_c/README.md"/>
+    <properties key="boardCompatibility" value="brd2901a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+</model:MDescriptors>
