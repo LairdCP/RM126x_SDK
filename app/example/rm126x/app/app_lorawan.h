@@ -21,7 +21,7 @@
 /***************************************************************************//**
  * Initialize LoRaWAN.
  ******************************************************************************/
-void app_lorawan_init(void);
+void app_lorawan_init(peripheral_descriptor_t *in_peripheral_descriptor);
 
 /***************************************************************************//**
  * LoRaWAN ticking function.

@@ -76,6 +76,7 @@
 #include "ticker.h"
 #include "sl_sleeptimer.h"
 #include <math.h>
+#include "app_peripheral.h"
 #include "app_lorawan.h"
 
 /*
@@ -167,6 +168,14 @@ static bool class_b_ready = false;
  * @brief Precalculated time to perform stack updates in Class B mode
  */
 static uint32_t class_b_update_time_ms;
+
+/*!
+ * @brief Connected peripheral instance. This is unused in sample applications
+ *        where RM126X_ADD_PERIPHERAL_SUPPORT is not defined.
+ */
+#ifdef RM126X_ADD_PERIPHERAL_SUPPORT
+static peripheral_descriptor_t *peripheral_descriptor = NULL;
+#endif
 
 /*
  * -----------------------------------------------------------------------------
@@ -265,7 +274,7 @@ static uint32_t lora_class_b_get_update_time( void );
 /**
  * @brief Main application entry point.
  */
-void app_lorawan_init(void)
+void app_lorawan_init(peripheral_descriptor_t *in_peripheral_descriptor)
 {
     static apps_modem_event_callback_t smtc_event_callback = {
         .adr_mobile_to_static  = NULL,
@@ -286,6 +295,14 @@ void app_lorawan_init(void)
         .class_b_ping_slot_info = on_class_b_ping_slot_info,
         .class_b_status         = on_class_b_status,
     };
+
+    /* Store peripheral data for use later for sample applications where
+     * RM126X_ADD_PERIPHERAL_SUPPORT is defined. Otherwise unused. */
+#ifdef RM126X_ADD_PERIPHERAL_SUPPORT
+    peripheral_descriptor = in_peripheral_descriptor;
+#else
+    UNUSED(in_peripheral_descriptor);
+#endif
 
     /* Initialise the ralf_t object corresponding to the board */
     ralf_t* modem_radio = smtc_board_initialise_and_get_ralf( );
@@ -412,6 +429,32 @@ static void on_modem_alarm( void )
     app_data_buffer[app_data_size++] = ( uint8_t ) ( uplink_count >> 16 );
     app_data_buffer[app_data_size++] = ( uint8_t ) ( uplink_count >> 24 );
 
+    /* Skip this step for any sample applications where
+     * RM126X_ADD_PERIPHERAL_SUPPORT is not defined. If so, check if we have a
+     * peripheral available.
+     */
+#ifdef RM126X_ADD_PERIPHERAL_SUPPORT
+    if ( peripheral_descriptor )
+    {
+        /* If so, check if it has a get function */
+        if ( peripheral_descriptor->app_peripheral_get )
+        {
+            /* Yes, so call it */
+            peripheral_descriptor->app_peripheral_get( &app_data_buffer[
+                                                       app_data_size],
+                                                       &app_data_size );
+        }
+        /* Also check if there's a set function */
+        if ( peripheral_descriptor->app_peripheral_set )
+        {
+            /* Yes, so call it */
+            peripheral_descriptor->app_peripheral_set( app_data_buffer,
+                                                       app_data_size );
+        }
+    }
+#endif
+
+    /* Send the uplink */
     send_frame( app_data_buffer, app_data_size, LORAWAN_CONFIRMED_MSG_ON );
 }
 
