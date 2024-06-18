@@ -43,7 +43,7 @@ void app_init(void)
   app_peripheral_init(&peripheral_descriptor);
 
   /* Perform LoRaWAN initialisation */
-  app_lorawan_init();
+  app_lorawan_init(&peripheral_descriptor);
 }
 
 void app_process_action(void)
