@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file
- * @brief Top level application functions
+ * @brief LoRaWAN application functions
  *******************************************************************************
  * # License
  * <b>Copyright 2020-23 Silicon Laboratories Inc. www.silabs.com</b>
@@ -15,7 +15,7 @@
  *
  ******************************************************************************/
 /*!
- * @file      main_lorawan.c
+ * @file      app_lorawan.c
  *
  * @brief     LoRa Basics Modem Class B device implementation
  *
@@ -76,6 +76,7 @@
 #include "ticker.h"
 #include "sl_sleeptimer.h"
 #include <math.h>
+#include "app_lorawan.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -264,7 +265,7 @@ static uint32_t lora_class_b_get_update_time( void );
 /**
  * @brief Main application entry point.
  */
-void app_internal_init( void )
+void app_lorawan_init(void)
 {
     static apps_modem_event_callback_t smtc_event_callback = {
         .adr_mobile_to_static  = NULL,
@@ -320,7 +321,7 @@ void app_internal_init( void )
     apps_modem_common_display_version_information( );
 }
 
-void app_internal_process_action(void)
+void app_lorawan_update(void)
 {
     /* Time calculated for next stack update */
     uint32_t sleep_time_ms;
