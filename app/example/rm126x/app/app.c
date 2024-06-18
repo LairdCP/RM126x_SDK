@@ -24,14 +24,25 @@
 #include "app_log.h"
 #include "em_cmu.h"
 #include "sl_iostream_init_instances.h"
+#include "app_peripheral.h"
 #include "app_lorawan.h"
+
+/* Peripheral descriptor that persists for the lifetime of the application. This
+ * is unused for examples where RM126X_ADD_PERIPHERAL_SUPPORT is not defined.
+ */
+peripheral_descriptor_t peripheral_descriptor;
 
 void app_init(void)
 {
   /* Initialise the NVM. */
   (void)Attribute_Init();
 
-  /* Now perform internal application initialisation */
+  /* Perform peripheral initialisation. This is not performed for examples where
+   * RM126X_ADD_PERIPHERAL_SUPPORT is not defined.
+   */
+  app_peripheral_init(&peripheral_descriptor);
+
+  /* Perform LoRaWAN initialisation */
   app_internal_init();
 }
 
@@ -41,4 +52,5 @@ void app_process_action(void)
   app_internal_process_action();
 
   /* And perform other application updates here */
+  app_peripheral_update();
 }

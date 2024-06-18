@@ -33,6 +33,7 @@ include:
   file_list:
   - path: app.h
   - path: app_lorawan.h
+  - path: app_peripheral.h
 
 ################################################################################
 # Components needed by the application.
