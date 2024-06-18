@@ -32,8 +32,6 @@ include:
 - path: ../rm126x/app
   file_list:
   - path: app.h
-- path: ../rm126x_class_c/app
-  file_list:
   - path: app_lorawan.h
 
 ################################################################################
