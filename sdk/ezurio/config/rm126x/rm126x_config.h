@@ -5,7 +5,7 @@
  *******************************************************************************
  * # License
  * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
- * <b>Copyright 2024 Laird Connectivity. www.lairdconnect.com</b>
+ * <b>Copyright 2024 Ezurio. www.ezurio.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib

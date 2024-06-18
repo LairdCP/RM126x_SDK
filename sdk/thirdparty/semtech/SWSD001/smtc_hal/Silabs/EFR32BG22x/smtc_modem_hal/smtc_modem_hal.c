@@ -5,7 +5,7 @@
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021-23. All rights reserved.
- * Copyright Laird Connectivity 2024. All rights reserved.
+ * Copyright Ezurio 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer
@@ -595,7 +595,7 @@ static void smtc_modem_hal_devnonce_ctx_attr_set(lr1_counter_context_t *buffer,
                         ATTR_INDEX_lora_devnonce_nb_reset, attr_ret);
       }
 
-      lc_str_bin_to_hex_dump_std(&(buffer->join_nonce[0]), join_nonce_str,
+      ez_str_bin_to_hex_dump_std(&(buffer->join_nonce[0]), join_nonce_str,
                                  JOIN_NONCE_SIZE);
 
       attr_ret = Attribute_Set(ATTR_INDEX_lora_devnonce_join_nonce,
@@ -772,7 +772,7 @@ static void smtc_modem_hal_devnonce_ctx_attr_get(lr1_counter_context_t *buffer,
       }
       else
       {
-          lc_str_hex_decode(&(buffer->join_nonce[0]), join_nonce_str,
+          ez_str_hex_decode(&(buffer->join_nonce[0]), join_nonce_str,
                             JOIN_NONCE_STR_SIZE);
       }
 
@@ -829,7 +829,7 @@ static smtc_se_key_identifier_t smtc_modem_hal_se_ctx_key_map(uint8_t index,
         }
 
         /* Convert both ASCII halves of the key map into binary */
-        lc_str_hex_decode(key_map, key_map_str, LC_SOFT_SE_NUM_KEYS * 2);
+        ez_str_hex_decode(key_map, key_map_str, LC_SOFT_SE_NUM_KEYS * 2);
         /* Then extract the key id as our return value */
         ret = key_map[index];
 
@@ -846,7 +846,7 @@ static smtc_se_key_identifier_t smtc_modem_hal_se_ctx_key_map(uint8_t index,
         else
         {
             /* Then convert to binary if read back was OK */
-            lc_str_hex_decode(key_attr_bin, key_attr, SMTC_SE_KEY_SIZE * 2);
+            ez_str_hex_decode(key_attr_bin, key_attr, SMTC_SE_KEY_SIZE * 2);
             memcpy(key, key_attr_bin, SMTC_SE_KEY_SIZE);
         }
     }
@@ -889,7 +889,7 @@ static void smtc_modem_hal_se_ctx_attr_set(soft_se_context_nvm_t *buffer,
       (size == sizeof(soft_se_context_nvm_t)))
   {
       /* Convert the Dev EUI to ASCII */
-      lc_str_bin_to_hex_dump_std(se_data->deveui, eui_str,
+      ez_str_bin_to_hex_dump_std(se_data->deveui, eui_str,
                                  SMTC_SE_EUI_SIZE);
 
       /* Store in the appropriate attribute */
@@ -906,7 +906,7 @@ static void smtc_modem_hal_se_ctx_attr_set(soft_se_context_nvm_t *buffer,
       }
 
       /* Convert the Join EUI to ASCII */
-      lc_str_bin_to_hex_dump_std(se_data->joineui, eui_str,
+      ez_str_bin_to_hex_dump_std(se_data->joineui, eui_str,
                                  SMTC_SE_EUI_SIZE);
 
       /* Store in the appropriate attribute */
@@ -923,7 +923,7 @@ static void smtc_modem_hal_se_ctx_attr_set(soft_se_context_nvm_t *buffer,
       }
 
       /* Convert the PIN to ASCII */
-      lc_str_bin_to_hex_dump_std(se_data->pin, eui_str,
+      ez_str_bin_to_hex_dump_std(se_data->pin, eui_str,
                                  SMTC_SE_PIN_SIZE);
 
       /* Store in the appropriate attribute */
@@ -951,7 +951,7 @@ static void smtc_modem_hal_se_ctx_attr_set(soft_se_context_nvm_t *buffer,
           key_map_bin[idx] = se_data->key_list[idx].key_id;
 
           /* Convert the next key to ASCII */
-          lc_str_bin_to_hex_dump_std(se_data->key_list[idx].key_value,
+          ez_str_bin_to_hex_dump_std(se_data->key_list[idx].key_value,
                                      key_str, SMTC_SE_KEY_SIZE);
 
           /* Then store in the appropriate attribute */
@@ -969,7 +969,7 @@ static void smtc_modem_hal_se_ctx_attr_set(soft_se_context_nvm_t *buffer,
       } while (++idx < SOFT_SE_NUMBER_OF_KEYS);
 
       /* Convert the whole key map to ASCII */
-      lc_str_bin_to_hex_dump_std(key_map_bin, key_map_str,
+      ez_str_bin_to_hex_dump_std(key_map_bin, key_map_str,
                                  LC_SOFT_SE_NUM_KEYS);
 
       /* Store the first half */
@@ -1042,7 +1042,7 @@ static void smtc_modem_hal_se_ctx_attr_get(soft_se_context_nvm_t *buffer,
           }
           else
           {
-              lc_str_hex_decode(buffer->data.deveui, eui, (SMTC_SE_EUI_SIZE * 2));
+              ez_str_hex_decode(buffer->data.deveui, eui, (SMTC_SE_EUI_SIZE * 2));
           }
 
           attr_ret = Attribute_Get(ATTR_INDEX_lora_se_joineui,
@@ -1056,7 +1056,7 @@ static void smtc_modem_hal_se_ctx_attr_get(soft_se_context_nvm_t *buffer,
           }
           else
           {
-              lc_str_hex_decode(buffer->data.joineui, eui, (SMTC_SE_EUI_SIZE * 2));
+              ez_str_hex_decode(buffer->data.joineui, eui, (SMTC_SE_EUI_SIZE * 2));
           }
 
           attr_ret = Attribute_Get(ATTR_INDEX_lora_se_pin,
@@ -1070,7 +1070,7 @@ static void smtc_modem_hal_se_ctx_attr_get(soft_se_context_nvm_t *buffer,
           }
           else
           {
-              lc_str_hex_decode(buffer->data.pin, eui, (SMTC_SE_PIN_SIZE * 2));
+              ez_str_hex_decode(buffer->data.pin, eui, (SMTC_SE_PIN_SIZE * 2));
           }
 
           /* Retrieve the key_ids from the key map attribute, and retrieve the

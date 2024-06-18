@@ -8,16 +8,16 @@ quality: evaluation
 root_path: sdk
 
 config_file:
-  - path: laird_connectivity/config/rm126x/rm126x_config.h
+  - path: ezurio/config/rm126x/rm126x_config.h
 
 include:
-  - path: laird_connectivity/inc
+  - path: ezurio/inc
     file_list:
       - path: Attribute.h
       - path: AttributeTable.h
       - path: ticker.h
       - path: string_conversion.h
-      - path: lc_common.h
+      - path: ez_common.h
   - path: thirdparty/semtech/SWSD001/apps/common
     file_list:
       - path: apps_modem_common.h
@@ -192,12 +192,12 @@ include:
       - path: modem_pinout.h
       - path: smtc_hal_flash_mapping.h
 source:
-  - path: laird_connectivity/src/Attribute.c
-  - path: laird_connectivity/src/Attribute_Device_Id.c
-  - path: laird_connectivity/src/AttributeTable.c
-  - path: laird_connectivity/src/AttributeValidator.c
-  - path: laird_connectivity/src/string_conversion.c
-  - path: laird_connectivity/src/ticker.c
+  - path: ezurio/src/Attribute.c
+  - path: ezurio/src/Attribute_Device_Id.c
+  - path: ezurio/src/AttributeTable.c
+  - path: ezurio/src/AttributeValidator.c
+  - path: ezurio/src/string_conversion.c
+  - path: ezurio/src/ticker.c
   - path: thirdparty/semtech/SWSD001/apps/common/apps_modem_common.c
   - path: thirdparty/semtech/SWSD001/apps/common/apps_modem_event.c
   - path: thirdparty/semtech/SWSD001/apps/common/apps_utilities.c
