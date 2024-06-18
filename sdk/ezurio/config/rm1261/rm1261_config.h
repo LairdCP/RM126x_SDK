@@ -1,11 +1,11 @@
 /***************************************************************************//**
- * @file rm1262_config.h
- * @brief Configuration file for RM1262 module component code.
+ * @file rm1261_config.h
+ * @brief Configuration file for RM1261 module component code.
  * @version 1.0.0
  *******************************************************************************
  * # License
  * <b>Copyright 2022 Silicon Laboratories Inc. www.silabs.com</b>
- * <b>Copyright 2023 Laird Connectivity. www.lairdconnect.com</b>
+ * <b>Copyright 2024 Ezurio. www.ezurio.com</b>
  *******************************************************************************
  *
  * SPDX-License-Identifier: Zlib
@@ -35,8 +35,8 @@
  * at the sole discretion of Silicon Labs.
  ******************************************************************************/
 
-#ifndef RM1262_CONFIG_H_
-#define RM1262_CONFIG_H_
+#ifndef RM1261_CONFIG_H_
+#define RM1261_CONFIG_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -46,34 +46,25 @@ extern "C" {
 
 // <h> Region
 // <o RM126X_REGION> Region
-// <14=> AU_915
-// <15=> AU_AS_923
-// <20=> NZ_915
-// <21=> NZ_AS_923
-// <26=> US_915
-// <i> Default: 26
-#define RM126X_REGION                   26
-// </h>
-
-// <h> Sub-band
-// <o RM126X_SUB_BAND> Sub-band
-// <0=> All 125kHz and 500kHz channels enabled
-// <1=> 1: 125kHz channels 0 to 7 and 500kHz channel 0 enabled
-// <2=> 2: 125kHz channels 8 to 15 and 500kHz channel 1 enabled
-// <3=> 3: 125kHz channels 16 to 23 and 500kHz channel 2 enabled
-// <4=> 4: 125kHz channels 24 to 31 and 500kHz channel 3 enabled
-// <5=> 5: 125kHz channels 32 to 39 and 500kHz channel 4 enabled
-// <6=> 6: 125kHz channels 40 to 47 and 500kHz channel 5 enabled
-// <7=> 7: 125kHz channels 48 to 55 and 500kHz channel 6 enabled
-// <8=> 8: 125kHz channels 56 to 63 and 500kHz channel 7 enabled
-// <i> Default: 2
-#define RM126X_SUB_BAND                       2
+// <16=> EU_868
+// <17=> IN_865
+// <18=> JP_AS_923
+// <24=> TW_AS_923
+// <25=> UK_868
+// <i> Default: 16
+#define RM126X_REGION                   16
 // </h>
 
 // <<< end of configuration section >>>
+
+// <h> Sub-band
+// <o RM126X_SUB_BAND> Sub-band, unused for RM1261
+// <i> Default: 0
+#define RM126X_SUB_BAND                       0
+// </h>
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* RM1262_CONFIG_H_ */
+#endif /* RM1261_CONFIG_H_ */

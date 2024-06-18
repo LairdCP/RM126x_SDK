@@ -1,11 +1,11 @@
 /*!
  * @file      rm126x_pinout_mapping.h
  *
- * @brief     Laird Connectivity RM126x pin map
+ * @brief     Ezurio RM126x pin map
  *
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
- * Copyright Laird Connectivity 2023. All rights reserved.
+ * Copyright Ezurio 2023. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer

@@ -1,8 +1,8 @@
-[![Laird Connectivity](images/laird_connectivity_logo.jpg)](https://www.lairdconnect.com/)
+[![Ezurio](images/ezurio_logo.jpg)](https://www.ezurio.com/)
 
 # RM126x Template Applications - RM1262 Class C
 
-[![RM1261 & RM1262](images/rm126x_render.jpg)](https://www.lairdconnect.com/wireless-modules/lorawan-modules-solutions/rm126x-ultra-low-power-lorawan-a-b-c-module)[![Silabs](images/silabs_logo.jpg)](https://www.silabs.com)[![Semtech](images/semtech_logo.jpg)](https://www.semtech.com)[![Gecko SDK](images/gecko_sdk_logo.jpg)](https://www.silabs.com/developers/gecko-software-development-kit)[![Simplicity Studio](images/simplicity_studio_logo.jpg)](https://www.silabs.com/developers/simplicity-studio)
+[![RM1261 & RM1262](images/rm126x_render.jpg)](https://www.ezurio.com/wireless-modules/lorawan-modules-solutions/rm126x-ultra-low-power-lorawan-a-b-c-module)[![Silabs](images/silabs_logo.jpg)](https://www.silabs.com)[![Semtech](images/semtech_logo.jpg)](https://www.semtech.com)[![Gecko SDK](images/gecko_sdk_logo.jpg)](https://www.silabs.com/developers/gecko-software-development-kit)[![Simplicity Studio](images/simplicity_studio_logo.jpg)](https://www.silabs.com/developers/simplicity-studio)
 
 This template application demonstrates LoRaWAN Class C functionality for the [RM1262][RM126x module datasheet] product variant.
 
@@ -26,7 +26,7 @@ Downlink messages can be received in the RX1 receive window opened following eac
 
 Class C mode is also enabled upon successful connection with the Class C receive window being opened following closure of the RX1 window after each periodic uplink.
 
-[RM126x module datasheet]: <https://www.lairdconnect.com/documentation/datasheet-rm126x-lorawan-module>
-[RM126x DVK user guide]: <https://www.lairdconnect.com/documentation/user-guide-rm126x-development-kit>
-[RM126x GSDK Extension user guide]: <https://www.lairdconnect.com/documentation/application-note-c-code-development-rm126x-series>
+[RM126x module datasheet]: <https://www.ezurio.com/documentation/datasheet-rm126x-lorawan-module>
+[RM126x DVK user guide]: <https://www.ezurio.com/documentation/user-guide-rm126x-development-kit>
+[RM126x GSDK Extension user guide]: <https://www.ezurio.com/documentation/application-note-c-code-development-rm126x-series>
 [Semtech SX1262 product page]: <https://www.semtech.com/products/wireless-rf/lora-connect/sx1262>

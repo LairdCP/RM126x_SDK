@@ -5,9 +5,9 @@
 
   Description:    this file contains various string manipulation
                   functions commonly used throughout the application. Many of the
-                  functions are ported from other Laird projects.
+                  functions are ported from other Ezurio projects.
 
-  Copyright (c) 2023 Laird Connectivity LLC.
+  Copyright (c) 2024 Ezurio.
  
   All rights reserved.
  
@@ -17,29 +17,29 @@
   1. Redistributions of source code must retain the above copyright notice, this
      list of conditions and the disclaimer below.
  
-  2. Redistributions in binary form, except as embedded into a Laird
-     Connectivity LLC module in a product, a Laird Connectivity LLC product, or
-     a software update for such products, must reproduce the above copyright
-     notice, this list of conditions and the disclaimer in the documentation
-     and/or other materials provided with the distribution.
- 
-  3. Neither the name of Laird Connectivity LLC nor the names of its
-     contributors may be used to endorse or promote products derived from this
-     software without specific prior written permission.
- 
-  4. This software, with or without modification, may only be used with a Laird
-     Connectivity LLC module or Laird Connectivity LLC product.
+  2. Redistributions in binary form, except as embedded into an Ezurio LLC
+     module in a product, an Ezurio LLC product, or a software update for such
+     products, must reproduce the above copyright notice, this list of
+     conditions and the disclaimer in the documentation and/or other materials
+     provided with the distribution.
+
+  3. Neither the name of Ezurio LLC nor the names of its contributors may be
+     used to endorse or promote products derived from this software without
+     specific prior written permission.
+
+  4. This software, with or without modification, may only be used with an
+     Ezurio LLC module or Ezurio LLC product.
  
   5. Any software provided in binary form under this license may not be reverse
      engineered, decompiled, modified or disassembled.
  
-  THIS SOFTWARE IS PROVIDED BY LAIRD CONNECTIVITY LLC "AS IS" AND ANY EXPRESS
+  THIS SOFTWARE IS PROVIDED BY EZURIO LLC "AS IS" AND ANY EXPRESS
   OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
   OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  DISCLAIMED. TO THE MAXIMUM EXTENT ALLOWED BY LAW, IN NO EVENT SHALL LAIRD
-  CONNECTIVITY LLC OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  DISCLAIMED. TO THE MAXIMUM EXTENT ALLOWED BY LAW, IN NO EVENT SHALL EZURIO
+  LLC OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
   PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
@@ -53,7 +53,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "app_log.h"
-#include "lc_common.h"
+#include "ez_common.h"
 #include "string_conversion.h"
 
 /*******************************************************************************
@@ -168,7 +168,7 @@ static int cleanup_string(uint8_t *ptr, uint32_t position, uint32_t length,
  *
  * @retval char * - the pointer to the original input string
  *****************************************************************************/
-uint8_t* lc_str_deescape(uint8_t *ptr, uint32_t *length)
+uint8_t* ez_str_deescape(uint8_t *ptr, uint32_t *length)
 {
   uint32_t loop;
   uint8_t control_string[2];
@@ -259,7 +259,7 @@ uint8_t* lc_str_deescape(uint8_t *ptr, uint32_t *length)
  *
  * @retval none
  *****************************************************************************/
-void lc_str_strescape(uint8_t *ptr, size_t *length, uint8_t *ptr1)
+void ez_str_strescape(uint8_t *ptr, size_t *length, uint8_t *ptr1)
 {
   uint32_t loop;
   uint32_t output_pos = 0;
@@ -355,7 +355,7 @@ void lc_str_strescape(uint8_t *ptr, size_t *length, uint8_t *ptr1)
  *
  * @retval The number of ASCII byte pairs converted.
  *****************************************************************************/
-uint8_t lc_str_strdehexize(uint8_t *ptr)
+uint8_t ez_str_strdehexize(uint8_t *ptr)
 {
   uint32_t length;
   uint32_t loop;
@@ -406,7 +406,7 @@ uint8_t lc_str_strdehexize(uint8_t *ptr)
  *
  * @retval none
  *****************************************************************************/
-void lc_str_hex_decode(uint8_t *out, uint8_t *in, uint32_t len)
+void ez_str_hex_decode(uint8_t *out, uint8_t *in, uint32_t len)
 {
     uint32_t pos = 0;
     while (pos < len)
@@ -433,7 +433,7 @@ void lc_str_hex_decode(uint8_t *out, uint8_t *in, uint32_t len)
  *
  * @retval none
  *****************************************************************************/
-void lc_str_decimal_to_2_digit_str(uint8_t in, char *out)
+void ez_str_decimal_to_2_digit_str(uint8_t in, char *out)
 {
   uint8_t tens = 0;
   uint8_t ones = 0;
@@ -458,13 +458,13 @@ void lc_str_decimal_to_2_digit_str(uint8_t in, char *out)
  *
  * @retval sc - the status of the operation
  *****************************************************************************/
-sl_status_t lc_str_string_to_uuid128(uint8_t *out, uint8_t *in, uint32_t len)
+sl_status_t ez_str_string_to_uuid128(uint8_t *out, uint8_t *in, uint32_t len)
 {
   sl_status_t sc = SL_STATUS_FAIL;
 
   if (len == UUID128_STR_LEN)
   {
-      lc_str_hex_decode(out, in, len);
+      ez_str_hex_decode(out, in, len);
       sc = SL_STATUS_OK;
   }
   else
@@ -479,7 +479,7 @@ sl_status_t lc_str_string_to_uuid128(uint8_t *out, uint8_t *in, uint32_t len)
  * Determine if the given string is all decimal numbers
  * @param in_string - the string to check.
  ****************************************************************************/
-bool lc_str_is_decimal_digits(char *in_string)
+bool ez_str_is_decimal_digits(char *in_string)
 {
   while (*in_string) {
     /* isdigit expects an int containing a char */
@@ -496,7 +496,7 @@ bool lc_str_is_decimal_digits(char *in_string)
  * Determine if the given string is all hex numbers
  * @param in_string - the string to check.
  ****************************************************************************/
-bool lc_str_is_hex_digits(char *in_string)
+bool ez_str_is_hex_digits(char *in_string)
 {
   while (*in_string) {
     /* isxdigit expects an int containing a char */
@@ -513,7 +513,7 @@ bool lc_str_is_hex_digits(char *in_string)
  * Determine if the given string is all decimal numbers
  * @param in_string - the string to check.
  ****************************************************************************/
-bool lc_str_is_signed_decimal_digits(char *in_string)
+bool ez_str_is_signed_decimal_digits(char *in_string)
 {
   while (*in_string) {
     /* isdigit expects an int containing a char */
@@ -531,7 +531,7 @@ bool lc_str_is_signed_decimal_digits(char *in_string)
  * @param out - pointer to output will change * and * + 1
  * @param data - byte to convert
  ****************************************************************************/
-void lc_str_bin_to_hex_single(uint8_t *out, uint8_t data)
+void ez_str_bin_to_hex_single(uint8_t *out, uint8_t data)
 {
   /* Convert upper 4 bits */
   *out = hex_conversion[(data & TOP_NYBBLE_MASK) >> TOP_NYBBLE_SHIFT];
@@ -546,7 +546,7 @@ void lc_str_bin_to_hex_single(uint8_t *out, uint8_t data)
  * @param[in] len - length of input buffer
  *
  ****************************************************************************/
-void lc_str_bin_to_hex_dump_std(uint8_t *input, uint8_t *output, size_t len)
+void ez_str_bin_to_hex_dump_std(uint8_t *input, uint8_t *output, size_t len)
 {
   uint8_t out_index = 0;
   /* Loop through the input data */
@@ -584,7 +584,7 @@ void lc_str_bin_to_hex_dump_std(uint8_t *input, uint8_t *output, size_t len)
  * @return The start position of the sub-string appearing in the string to
  *         be searched.
  ****************************************************************************/
-int lc_str_pos(char *str, char *str_sub, int start_pos, int length_str)
+int ez_str_pos(char *str, char *str_sub, int start_pos, int length_str)
 {
   int i;
   int j;
@@ -642,7 +642,7 @@ int lc_str_pos(char *str, char *str_sub, int start_pos, int length_str)
  * @param ptr     - The pointer to the initial string with the left most
  *                  characters removed.
  ****************************************************************************/
-void lc_str_split_left(const char *str, int length, char *ptr)
+void ez_str_split_left(const char *str, int length, char *ptr)
 {
   int len;
 
@@ -673,7 +673,7 @@ void lc_str_split_left(const char *str, int length, char *ptr)
  * @param str - The string that is to be converted to all lower case characters.
  *              This also holds the result.
  ****************************************************************************/
-void lc_str_to_lower(char *str)
+void ez_str_to_lower(char *str)
 {
   for (size_t i = 0; i < strlen(str); ++i)
   {
@@ -689,7 +689,7 @@ void lc_str_to_lower(char *str)
  *        drop - The number of characters that the string is to be shifted to
  *               the left.
  ****************************************************************************/
-void lc_str_shift_left(char *cmd_str, int drop)
+void ez_str_shift_left(char *cmd_str, int drop)
 {
   int i = 0;
   int end_pos;
@@ -712,7 +712,7 @@ void lc_str_shift_left(char *cmd_str, int drop)
  *
  * @return The ASCII value of the character at position i within string str.
  ****************************************************************************/
-int lc_str_get_chr(char *str, int i)
+int ez_str_get_chr(char *str, int i)
 {
   int length;
   int ret_value;
@@ -738,11 +738,11 @@ int lc_str_get_chr(char *str, int i)
  * @param cmdstr - The string that is to be processed.
  *                 This also holds the result.
  ****************************************************************************/
-void lc_drop_white_space(char *cmd_str, int pos)
+void ez_drop_white_space(char *cmd_str, int pos)
 {
   int tmpDta;
 
-  tmpDta = lc_str_get_chr(cmd_str, pos);
+  tmpDta = ez_str_get_chr(cmd_str, pos);
 
   while ((tmpDta >= 0) && (tmpDta <= CHR_ASCII_SPACE))
   {
@@ -750,5 +750,5 @@ void lc_drop_white_space(char *cmd_str, int pos)
     tmpDta = (int)*(cmd_str + pos);
   }
 
-  lc_str_shift_left(cmd_str, pos);
+  ez_str_shift_left(cmd_str, pos);
 }

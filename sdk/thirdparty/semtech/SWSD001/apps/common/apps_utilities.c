@@ -6,7 +6,7 @@
  * @copyright
  * The Clear BSD License
  * Copyright Semtech Corporation 2021. All rights reserved.
- * Copyright Laird Connectivity 2024. All rights reserved.
+ * Copyright Ezurio 2024. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the disclaimer

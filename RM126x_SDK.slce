@@ -1,7 +1,7 @@
 id: rm126x_sdk
 label: RM126x SDK
 description: >
-  SDK and sample applications for the Laird Connectivity RM126x LoRa module
+  SDK and sample applications for the Ezurio RM126x LoRa module
 version: 1.0.0
 sdk:
   id: gecko_sdk

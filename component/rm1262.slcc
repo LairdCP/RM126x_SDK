@@ -8,7 +8,7 @@ quality: evaluation
 root_path: sdk
 
 config_file:
-  - path: laird_connectivity/config/rm1262/rm1262_config.h
+  - path: ezurio/config/rm1262/rm1262_config.h
 
 include:
   - path: thirdparty/semtech/SWSD001/lora_basics_modem/lora_basics_modem/smtc_modem_core/lr1mac/src/smtc_real/src
