@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file
- * @brief Top level application functions
+ * @brief LoRaWAN application functions
  *******************************************************************************
  * # License
  * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
@@ -15,17 +15,17 @@
  *
  ******************************************************************************/
 
-#ifndef APP_INTERNAL_H
-#define APP_INTERNAL_H
+#ifndef APP_LORAWAN_H
+#define APP_LORAWAN_H
 
 /***************************************************************************//**
- * Initialize application.
+ * Initialize LoRaWAN.
  ******************************************************************************/
-void app_internal_init(void);
+void app_lorawan_init(void);
 
 /***************************************************************************//**
- * App ticking function.
+ * LoRaWAN ticking function.
  ******************************************************************************/
-void app_internal_process_action(void);
+void app_lorawan_update(void);
 
-#endif  // APP_INTERNAL_H
+#endif  // APP_LORAWAN_H

@@ -43,13 +43,13 @@ void app_init(void)
   app_peripheral_init(&peripheral_descriptor);
 
   /* Perform LoRaWAN initialisation */
-  app_internal_init();
+  app_lorawan_init();
 }
 
 void app_process_action(void)
 {
   /* Update LoRaWAN if needed */
-  app_internal_process_action();
+  app_lorawan_update();
 
   /* And perform other application updates here */
   app_peripheral_update();
