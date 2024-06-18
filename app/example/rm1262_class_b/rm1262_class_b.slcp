@@ -26,7 +26,7 @@ filter:
 source:
 - path: ../rm126x/app/app.c
 - path: ../rm126x/app/main.c
-- path: ../rm126x_class_b/app/app_internal.c
+- path: ../rm126x_class_b/app/app_lorawan.c
 
 include:
 - path: ../rm126x/app
@@ -34,7 +34,7 @@ include:
   - path: app.h
 - path: ../rm126x_class_b/app
   file_list:
-  - path: app_internal.h
+  - path: app_lorawan.h
 
 ################################################################################
 # Components needed by the application.

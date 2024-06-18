@@ -24,7 +24,7 @@
 #include "app_log.h"
 #include "em_cmu.h"
 #include "sl_iostream_init_instances.h"
-#include "app_internal.h"
+#include "app_lorawan.h"
 
 void app_init(void)
 {
