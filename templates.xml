@@ -4,7 +4,7 @@
     <properties key="namespace" value="template.uc"/>
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1261_class_a/rm1261_class_a.slcp"/>
-    <properties key="readmeFiles" value="app/documentation/rm1261_class_a.md"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_a.md"/>
     <properties key="boardCompatibility" value="brd2900a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
@@ -18,7 +18,7 @@
     <properties key="namespace" value="template.uc"/>
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1262_class_a/rm1262_class_a.slcp"/>
-    <properties key="readmeFiles" value="app/documentation/rm1262_class_a.md"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_a.md"/>
     <properties key="boardCompatibility" value="brd2901a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
@@ -32,7 +32,7 @@
     <properties key="namespace" value="template.uc"/>
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1261_class_b/rm1261_class_b.slcp"/>
-    <properties key="readmeFiles" value="app/documentation/rm1261_class_b.md"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_b.md"/>
     <properties key="boardCompatibility" value="brd2900a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
@@ -46,7 +46,7 @@
     <properties key="namespace" value="template.uc"/>
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1262_class_b/rm1262_class_b.slcp"/>
-    <properties key="readmeFiles" value="app/documentation/rm1262_class_b.md"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_b.md"/>
     <properties key="boardCompatibility" value="brd2901a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
@@ -60,7 +60,7 @@
     <properties key="namespace" value="template.uc"/>
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1261_class_c/rm1261_class_c.slcp"/>
-    <properties key="readmeFiles" value="app/documentation/rm1261_class_c.md"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_c.md"/>
     <properties key="boardCompatibility" value="brd2900a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
@@ -74,7 +74,7 @@
     <properties key="namespace" value="template.uc"/>
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1262_class_c/rm1262_class_c.slcp"/>
-    <properties key="readmeFiles" value="app/documentation/rm1262_class_c.md"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_c.md"/>
     <properties key="boardCompatibility" value="brd2901a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
