@@ -78,6 +78,7 @@
 #include <math.h>
 #include "app_peripheral.h"
 #include "app_lorawan.h"
+#include "app_formatters.h"
 
 /*
  * -----------------------------------------------------------------------------
@@ -152,7 +153,7 @@ static uint8_t adr_custom_list[16] = { 0x05, 0x05, 0x05, 0x04, 0x04, 0x04, 0x03,
 /*!
  * @brief Count of uplinks sent
  */
-static uint32_t uplink_count = 0;
+static uint16_t uplink_count = 0;
 
 /*!
  * @brief Flag set when ping slot info is set in the LNS
@@ -424,10 +425,9 @@ static void on_modem_alarm( void )
     ASSERT_SMTC_MODEM_RC( smtc_modem_get_status( stack_id, &modem_status ) );
     modem_status_to_string( modem_status );
 
-    app_data_buffer[app_data_size++] = ( uint8_t ) ( uplink_count );
-    app_data_buffer[app_data_size++] = ( uint8_t ) ( uplink_count >> 8 );
-    app_data_buffer[app_data_size++] = ( uint8_t ) ( uplink_count >> 16 );
-    app_data_buffer[app_data_size++] = ( uint8_t ) ( uplink_count >> 24 );
+    /* Always add the uplink count */
+    app_formatters_get_uint16(uplink_count, app_data_buffer);
+    app_data_size = APP_FORMATTERS_UINT16_SIZE;
 
     /* Skip this step for any sample applications where
      * RM126X_ADD_PERIPHERAL_SUPPORT is not defined. If so, check if we have a
