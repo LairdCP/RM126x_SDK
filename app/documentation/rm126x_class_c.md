@@ -22,7 +22,11 @@ During start-up, peripherals associated with the Semtech radio are started, then
 
 The application then attempts to initiate a Class A connection with the Network Server, and will perform repeated attempts to establish the connection.
 
-Upon successful connection, the application will send periodic uplinks with a 4-byte payload indicating the index of the uplink.
+Upon successful connection, the application will send periodic uplinks with a 2-byte payload indicating the index of the uplink.
+
+The uplink data is formatted as shown below.
+
+![Uplink count payload](images/rm126x_uplink_count.jpg)
 
 Downlink messages can be received in the RX1 receive window opened following each uplink.
 
