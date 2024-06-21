@@ -53,7 +53,6 @@ Downlink messages can be received in the RX1 or RX2 receive windows opened follo
 [RM126x GSDK Extension user guide]: <https://www.ezurio.com/documentation/application-note-c-code-development-rm126x-series>
 [Semtech SX1261 product page]: <https://www.semtech.com/products/wireless-rf/lora-connect/sx1261>
 [Semtech SX1262 product page]: <https://www.semtech.com/products/wireless-rf/lora-connect/sx1262>
-[MikroE Environment 2 Click board product page]: <https://www.mikroe.com/environment-2-click>
 [RM126x DVK SPI configuration]: <rm126x_spi_configuration.md>
 [1.54 inch ePaper display]: <https://www.mikroe.com/e-paper-display-154-200x200-dots>
 [MikroE EInk Click board]: <https://www.mikroe.com/eink-click-without-display>
