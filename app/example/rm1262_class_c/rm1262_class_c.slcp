@@ -25,6 +25,7 @@ filter:
 
 source:
 - path: ../rm126x/app/app.c
+- path: ../rm126x/app/app_formatters.c
 - path: ../rm126x/app/main.c
 - path: ../rm126x_class_c/app/app_lorawan.c
 
@@ -32,6 +33,7 @@ include:
 - path: ../rm126x/app
   file_list:
   - path: app.h
+  - path: app_formatters.h
   - path: app_lorawan.h
   - path: app_peripheral.h
 
