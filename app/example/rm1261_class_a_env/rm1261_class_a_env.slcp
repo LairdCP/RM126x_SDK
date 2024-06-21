@@ -1,0 +1,153 @@
+# Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
+################################################################################
+# Ezurio 2024 (c).
+#
+# RM126x SDK Application SLCP file.
+#
+# Template application demonstrating a LoRaWAN Class A connection being
+# established.
+################################################################################
+project_name: rm1261_class_a_env.slcp
+label: rm1261_class_a_environment_sensing
+description: |
+  This example project shows a LoRaWAN Class A connection being established and temperature, humidity and air quality data being uplinked from a MikroE 4558 board.
+category: Example|Platform
+package: platform
+quality: evaluation
+
+filter:
+- name: Device Type
+  value: [SoC]
+- name: MCU
+  value: [32-bit MCU]
+- name: Project Difficulty
+  value: [Beginner]
+
+source:
+- path: ../rm126x/app/app.c
+- path: ../rm126x/app/main.c
+- path: ../rm126x/app/app_formatters.c
+- path: ../rm126x_class_a/app/app_lorawan.c
+- path: ../rm126x_4558/app/app_peripheral.c
+
+include:
+- path: ../rm126x/app
+  file_list:
+  - path: app.h
+  - path: app_lorawan.h
+  - path: app_peripheral.h
+  - path: app_formatters.h
+
+################################################################################
+# Components needed by the application.
+################################################################################
+component:
+- id: rm126x
+  from: rm126x_sdk
+- id: rm1261
+  from: rm126x_sdk
+- id: emlib_rmu
+- id: app_log
+- id: sl_system
+- id: device_init_lfxo
+- id: emlib_gpio_simple_init
+  instance: [pin_boot, pin_sx_ant_sw, pin_sx_busy, pin_sx_dio1, pin_sx_nreset, pin_sx_nss]
+- id: spidrv_usart
+  instance: [spi_sx126x]
+- id: device_init
+- id: gpiointerrupt
+- id: device_init_hfrco
+- id: iostream_eusart
+  instance: [hostcom]
+- id: emlib_timer
+- id: EFR32BG22C224F512IM40
+- id: udelay
+- id: nvm3_default
+- id: sleeptimer
+- id: environment2_sgp40_sht40
+  from: third_party_hw_drivers
+
+################################################################################
+# Peripheral configuration and pin tool settings are configured via config file
+# overrides where possible.
+################################################################################
+config_file:
+  - override:
+      component: spidrv_usart
+      file_id: spidrv_usart_config
+      instance: spi_sx126x
+    path: ../rm126x/config/sl_spidrv_usart_spi_sx126x_config.h
+  - override:
+      component: iostream_eusart
+      file_id: iostream_eusart_config
+      instance: hostcom
+    path: ../rm126x/config/sl_iostream_eusart_hostcom_config.h
+  - override:
+      component: emlib_gpio_simple_init
+      file_id: emlib_gpio_simple_init_config_file_id
+      instance: pin_boot
+    path: ../rm126x/config/sl_emlib_gpio_init_pin_boot_config.h
+  - override:
+      component: emlib_gpio_simple_init
+      file_id: emlib_gpio_simple_init_config_file_id
+      instance: pin_sx_ant_sw
+    path: ../rm126x/config/sl_emlib_gpio_init_pin_sx_ant_sw_config.h
+  - override:
+      component: emlib_gpio_simple_init
+      file_id: emlib_gpio_simple_init_config_file_id
+      instance: pin_sx_busy
+    path: ../rm126x/config/sl_emlib_gpio_init_pin_sx_busy_config.h
+  - override:
+      component: emlib_gpio_simple_init
+      file_id: emlib_gpio_simple_init_config_file_id
+      instance: pin_sx_dio1
+    path: ../rm126x/config/sl_emlib_gpio_init_pin_sx_dio1_config.h
+  - override:
+      component: emlib_gpio_simple_init
+      file_id: emlib_gpio_simple_init_config_file_id
+      instance: pin_sx_nreset
+    path: ../rm126x/config/sl_emlib_gpio_init_pin_sx_nreset_config.h
+  - override:
+      component: emlib_gpio_simple_init
+      file_id: emlib_gpio_simple_init_config_file_id
+      instance: pin_sx_nss
+    path: ../rm126x/config/sl_emlib_gpio_init_pin_sx_nss_config.h
+
+################################################################################
+# Default peripheral configuration settings are overwritten here.
+################################################################################
+configuration:
+  - name: "SL_SLEEPTIMER_PERIPHERAL"
+    value: "SL_SLEEPTIMER_PERIPHERAL_BURTC"
+  - name: "SL_DEVICE_INIT_HFRCO_BAND"
+    value: "cmuHFRCODPLLFreq_38M0Hz"
+  - name: "SL_DEVICE_INIT_LFXO_CTUNE"
+    value: "52"
+  - name: "SL_DEVICE_INIT_LFXO_PRECISION"
+    value: "500"
+
+define:
+  - name: "LORAWAN_CLASS"
+    value: "SMTC_MODEM_CLASS_A"
+  - name: DEBUG_EFM
+  - name: RM126X_ADD_PERIPHERAL_SUPPORT
+  - name: "SL_I2CSPM_MIKROE_PERIPHERAL"
+    value: "I2C0"
+  - name: "SL_I2CSPM_MIKROE_PERIPHERAL_NO"
+    value: "0"
+  - name: "SL_I2CSPM_MIKROE_SCL_PORT"
+    value: "gpioPortD"
+  - name: "SL_I2CSPM_MIKROE_SCL_PIN"
+    value: "2"
+  - name: "SL_I2CSPM_MIKROE_SDA_PORT"
+    value: "gpioPortD"
+  - name: "SL_I2CSPM_MIKROE_SDA_PIN"
+    value: "3"
+
+sdk_extension:
+- id: rm126x_sdk
+  version: 2.0.0
+- id: third_party_hw_drivers
+  version: 2.0.1
+
+ui_hints: {}
