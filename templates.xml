@@ -13,6 +13,20 @@
     <properties key="filters" value="Project\ Difficulty|Beginner"/>
     <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
   </descriptors>
+  <descriptors name="rm1261_class_a_disp" label="RM1261 - Class A Display data"
+               description="This example project shows a Class A connection being established and uplink count being displayed by a MikroE 3683 eINK display board.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1261_class_a_disp/rm1261_class_a_disp.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_a_disp_ss.md"/>
+    <properties key="boardCompatibility" value="brd2900a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
   <descriptors name="rm1261_class_a_env" label="RM1261 - Class A Environmental data"
                description="This example project shows a Class A connection being established and temperature, humidity and air quality data being uplinked from a MikroE 4558 board.">
     <properties key="namespace" value="template.uc"/>
@@ -61,6 +75,20 @@
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1262_class_a/rm1262_class_a.slcp"/>
     <properties key="readmeFiles" value="app/documentation/rm126x_class_a.md"/>
+    <properties key="boardCompatibility" value="brd2901a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+  <descriptors name="rm1262_class_a_disp" label="RM1262 - Class A Display data"
+               description="This example project shows a Class A connection being established and uplink count being displayed by a MikroE 3683 eINK display board.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1262_class_a_disp/rm1262_class_a_disp.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_a_disp_ss.md"/>
     <properties key="boardCompatibility" value="brd2901a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
