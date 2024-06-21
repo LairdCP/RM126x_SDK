@@ -27,6 +27,20 @@
     <properties key="filters" value="Project\ Difficulty|Beginner"/>
     <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
   </descriptors>
+  <descriptors name="rm1261_class_a_weather" label="RM1261 - Class A Weather data"
+               description="This example project shows a Class A connection being established and weather data being uplinked from a MikroE 2293 board.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1261_class_a_weather/rm1261_class_a_weather.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_a_weather_ss.md"/>
+    <properties key="boardCompatibility" value="brd2900a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
   <descriptors name="rm1262_class_a" label="RM1262 - Class A"
                description="This example project shows a Class A connection being established.">
     <properties key="namespace" value="template.uc"/>
@@ -47,6 +61,20 @@
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1262_class_a_th/rm1262_class_a_th.slcp"/>
     <properties key="readmeFiles" value="app/documentation/rm126x_class_a_th_ss.md"/>
+    <properties key="boardCompatibility" value="brd2901a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+  <descriptors name="rm1262_class_a_weather" label="RM1262 - Class A Weather data"
+               description="This example project shows a Class A connection being established and weather data being uplinked from a MikroE 2293 board.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1262_class_a_weather/rm1262_class_a_weather.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_a_weather_ss.md"/>
     <properties key="boardCompatibility" value="brd2901a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
