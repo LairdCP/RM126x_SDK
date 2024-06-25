@@ -286,6 +286,12 @@ void app_lorawan_update(void)
         /* Update the stack */
         sleep_time_ms = smtc_modem_run_engine( );
 
+        /* Always clamp update rate to Class C update rate */
+        if ( sleep_time_ms > RM126X_CLASS_C_UPDATE_RATE_MS )
+        {
+            sleep_time_ms = RM126X_CLASS_C_UPDATE_RATE_MS;
+        }
+
         /* Service other parts of the application
          * If the sleep timer has been built we restart it
          */
