@@ -13,6 +13,20 @@
     <properties key="filters" value="Project\ Difficulty|Beginner"/>
     <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
   </descriptors>
+  <descriptors name="rm1261_class_a_co" label="RM1261 - Class A Carbon monoxide level data"
+               description="This example project shows a Class A connection being established and carbon monoxide level data being uplinked from a MikroE 3196 Click board.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1261_class_a_co/rm1261_class_a_co.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_a_co_ss.md"/>
+    <properties key="boardCompatibility" value="brd2900a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
   <descriptors name="rm1261_class_a_disp" label="RM1261 - Class A Display data"
                description="This example project shows a Class A connection being established and uplink count being displayed by a MikroE 3683 eINK display board.">
     <properties key="namespace" value="template.uc"/>
@@ -89,6 +103,20 @@
     <properties key="keywords" value="universal\ configurator"/>
     <properties key="projectFilePaths" value="app/example/rm1262_class_a/rm1262_class_a.slcp"/>
     <properties key="readmeFiles" value="app/documentation/rm126x_class_a.md"/>
+    <properties key="boardCompatibility" value="brd2901a"/>
+    <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
+    <properties key="toolchainCompatibility" value="gcc iar segger"/>
+    <properties key="category" value="RM126x SDK"/>
+    <properties key="quality" value="EVALUATION"/>
+    <properties key="filters" value="Project\ Difficulty|Beginner"/>
+    <properties key="stockConfigCompatibility" value="com.silabs.ss.framework.project.toolchain.core.default"/>
+  </descriptors>
+  <descriptors name="rm1262_class_a_co" label="RM1262 - Class A Carbon monoxide level data"
+               description="This example project shows a Class A connection being established and carbon monoxide level data being uplinked from a MikroE 3196 Click board.">
+    <properties key="namespace" value="template.uc"/>
+    <properties key="keywords" value="universal\ configurator"/>
+    <properties key="projectFilePaths" value="app/example/rm1262_class_a_co/rm1262_class_a_co.slcp"/>
+    <properties key="readmeFiles" value="app/documentation/rm126x_class_a_co_ss.md"/>
     <properties key="boardCompatibility" value="brd2901a"/>
     <properties key="ideCompatibility" value="iar-embedded-workbench makefile-ide segger-embedded-studio simplicity-ide"/>
     <properties key="toolchainCompatibility" value="gcc iar segger"/>
